@@ -12,5 +12,12 @@
 
   <body>
     <%= yield %>
+
+    <% if signed_in? %>
+      <p>
+        <%= current_user.email %> |
+        <%= link_to('sign out', destroy_user_session_path, data: { turbo_method: :delete }) %>
+      </p>
+    <% end %>
   </body>
 </html>
