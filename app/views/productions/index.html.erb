@@ -2,10 +2,12 @@
 
 <% @productions.each do |product| %>
   <div>
+    <%= product.id %>
     <%= product.title %>
     <%= product.media %>
     <%= product.description %>
     <%= product.updated_at %>
+    <%= link_to("edit", edit_production_path(product)) %>
   </div>
 <% end %>
 

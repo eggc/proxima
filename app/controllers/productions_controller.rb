@@ -7,9 +7,19 @@ class ProductionsController < ApplicationController
     @production = Production.new
   end
 
+  def edit
+    @production = Production.find(params[:id])
+  end
+
   def create
     @production = Production.new(production_params)
     @production.save!
+    redirect_to(productions_path)
+  end
+
+  def update
+    @production = Production.find(params[:id])
+    @production.update!(production_params)
     redirect_to(productions_path)
   end
 
