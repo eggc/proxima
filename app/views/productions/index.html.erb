@@ -8,6 +8,7 @@
     <%= product.description %>
     <%= product.updated_at %>
     <%= link_to("edit", edit_production_path(product)) %>
+    <%= link_to("destroy", production_path(product), data: { turbo_method: :delete }) %>
   </div>
 <% end %>
 
