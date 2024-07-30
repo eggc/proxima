@@ -1,0 +1,10 @@
+<h1>Productions</h1>
+
+<% @productions.each do |product| %>
+  <div>
+    <%= product.title %>
+    <%= product.media %>
+    <%= product.description %>
+    <%= product.updated_at %>
+  </div>
+<% end %>
