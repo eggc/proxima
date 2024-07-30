@@ -17,6 +17,7 @@ if Rails.env.development?
       { id: 2, email: 'bob@example.com', encrypted_password: }
     ]
   )
+  User.connection.execute("SELECT setval('users_id_seq', (SELECT MAX(id) FROM users));")
 
   Production.upsert_all(
     [
@@ -57,4 +58,5 @@ if Rails.env.development?
       }
     ]
   )
+  Production.connection.execute("SELECT setval('productions_id_seq', (SELECT MAX(id) FROM productions));")
 end
