@@ -1,7 +1,7 @@
 <%= form_with(model: @production) do |f| %>
   <div>
     <div>title: <%= f.text_field(:title) %></div>
-    <div>media: <%= f.text_field(:media) %></div>
+    <div>media: <%= f.select(:media, Production.media) %></div>
     <div>description: <%= f.text_area(:description) %></div>
     <div><%= f.submit %></div>
   </div>
