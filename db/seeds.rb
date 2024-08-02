@@ -9,54 +9,18 @@
 #   end
 
 if Rails.env.development?
-  encrypted_password = User.new(password: 'hoge').encrypted_password
+  def load_hash_from_fixture(fixture_file_name)
+    path = "test/fixtures/#{fixture_file_name}"
+    yaml = YAML.safe_load_file(path, permitted_classes: [Date])
+    yaml.values
+  end
 
-  User.upsert_all(
-    [
-      { id: 1, email: 'alice@example.com', encrypted_password: },
-      { id: 2, email: 'bob@example.com', encrypted_password: }
-    ]
-  )
+  User.upsert_all(load_hash_from_fixture('users.yml'))
   User.connection.execute("SELECT setval('users_id_seq', (SELECT MAX(id) FROM users));")
 
-  Project.upsert_all(
-    [
-      {
-        id: 1,
-        user_id: 1,
-        title: '僕のヒーローアカデミア',
-        media: 'comic',
-        release_date: '2014-07-07'
-      },
-      {
-        id: 2,
-        user_id: 1,
-        title: '風来のシレン',
-        media: 'game',
-        release_date: '1995-12-01'
-      },
-      {
-        id: 3,
-        user_id: 1,
-        title: '魔法少女まどか☆マギカ',
-        media: 'anime',
-        release_date: '2011-01-07'
-      },
-      {
-        id: 4,
-        user_id: 1,
-        title: 'ジョーカー',
-        media: 'movie',
-        release_date: '2019-10-04'
-      },
-      {
-        id: 5,
-        user_id: 2,
-        title: '銀河英雄伝説',
-        media: 'novel',
-        release_date: '1988-12-21'
-      }
-    ]
-  )
+  Project.upsert_all(load_hash_from_fixture('projects.yml'))
   Project.connection.execute("SELECT setval('projects_id_seq', (SELECT MAX(id) FROM projects));")
+
+  Character.upsert_all(load_hash_from_fixture('characters.yml'))
+  Character.connection.execute("SELECT setval('characters_id_seq', (SELECT MAX(id) FROM characters));")
 end
