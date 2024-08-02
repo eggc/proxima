@@ -1,13 +1,13 @@
-<% @productions.each do |product| %>
+<% @projects.each do |product| %>
   <div>
     <%= product.id %>
     <%= product.title %>
     <%= product.media %>
     <%= product.description %>
     <%= product.release_date %>
-    <%= link_to("edit", edit_production_path(product)) %>
-    <%= link_to("destroy", production_path(product), data: { turbo_method: :delete }) %>
+    <%= link_to("edit", edit_project_path(product)) %>
+    <%= link_to("destroy", project_path(product), data: { turbo_method: :delete }) %>
   </div>
 <% end %>
 
-<%= link_to("new", new_production_path) %>
+<%= link_to("new", new_project_path) %>

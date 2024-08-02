@@ -19,7 +19,7 @@ if Rails.env.development?
   )
   User.connection.execute("SELECT setval('users_id_seq', (SELECT MAX(id) FROM users));")
 
-  Production.upsert_all(
+  Project.upsert_all(
     [
       {
         id: 1,
@@ -58,5 +58,5 @@ if Rails.env.development?
       }
     ]
   )
-  Production.connection.execute("SELECT setval('productions_id_seq', (SELECT MAX(id) FROM productions));")
+  Project.connection.execute("SELECT setval('projects_id_seq', (SELECT MAX(id) FROM projects));")
 end

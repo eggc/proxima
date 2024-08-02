@@ -8,5 +8,5 @@ Rails.application.routes.draw do
 
   root 'roots#show'
   resource :user, only: :show
-  resources :productions, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :projects, only: [:index, :new, :create, :edit, :update, :destroy]
 end
