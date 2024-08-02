@@ -1,0 +1,14 @@
+<% @characters.each do |character| %>
+  <div>
+    <%= character.id %>
+    <%= character.name %>
+    <%= character.gender %>
+    <%= character.job %>
+    <%= character.age %>
+    <%= character.interests %>
+    <%= link_to("edit", edit_character_path(character)) %>
+    <%= link_to("destroy", character_path(character), data: { turbo_method: :delete }) %>
+  </div>
+<% end %>
+
+<%= link_to("new", new_character_path) %>

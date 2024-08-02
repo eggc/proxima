@@ -1,0 +1,10 @@
+<%= form_with(model: @character) do |f| %>
+  <div>
+    <div>name: <%= f.text_field(:name) %></div>
+    <div>gender: <%= f.text_field(:gender) %></div>
+    <div>job: <%= f.text_field(:job) %></div>
+    <div>age: <%= f.text_field(:age) %></div>
+    <div>interests: <%= f.text_area(:interests) %></div>
+    <div><%= f.submit %></div>
+  </div>
+<% end %>
