@@ -1,11 +1,54 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-# This model initially had no columns defined. If you add columns to the
-# model remove the "{}" from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+deku:
+  id: 1
+  user_id: 1
+  name: 緑谷出久
+  age: 16
+  gender: male
+bakugo:
+  id: 2
+  user_id: 1
+  name: 爆豪勝己
+  age: 17
+  gender: male
+shiren:
+  id: 3
+  user_id: 1
+  name: シレン
+  age:
+  gender: male
+koppa:
+  id: 4
+  user_id: 1
+  name: コッパ
+  age:
+  gender:
+madoka:
+  id: 5
+  user_id: 1
+  name: 鹿目まどか
+  age: 14
+  gender: female
+homura:
+  id: 6
+  user_id: 1
+  name: 暁美ほむら
+  age: 13
+  gender: female
+joker:
+  id: 7
+  user_id: 1
+  name: アーサー・フレック
+  age:
+  gender: male
+reinhardt:
+  id: 8
+  user_id: 2
+  name: ラインハルト
+  age:
+  gender: male
+yang:
+  id: 9
+  user_id: 2
+  name: ヤン・ウェンリー
+  age:
+  gender: male

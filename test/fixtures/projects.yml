@@ -1,11 +1,30 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-# This model initially had no columns defined. If you add columns to the
-# model remove the "{}" from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+my_hero_academia:
+  id: 1
+  user_id: 1
+  title: 僕のヒーローアカデミア
+  media: comic
+  release_date: 2014-07-07
+furai_no_shiren:
+  id: 2
+  user_id: 1
+  title: 風来のシレン
+  media: game
+  release_date: 1995-12-01
+mado_magi:
+  id: 3
+  user_id: 1
+  title: 魔法少女まどか☆マギカ
+  media: anime
+  release_date: 2011-01-07
+joker:
+  id: 4
+  user_id: 1
+  title: ジョーカー
+  media: movie
+  release_date: 2019-10-04
+gin_ei_den:
+  id: 5
+  user_id: 2
+  title: 銀河英雄伝説
+  media: novel
+  release_date: 1988-12-21
