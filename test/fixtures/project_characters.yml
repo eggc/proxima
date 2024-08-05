@@ -1,48 +1,36 @@
 my_hero_academia_001:
-  id: 1
   project_id: 1
   character_id: 1
 my_hero_academia_002:
-  id: 2
   project_id: 1
   character_id: 2
 furai_no_shiren1_001:
-  id: 3
   project_id: 2
   character_id: 3
 furai_no_shiren1_002:
-  id: 4
   project_id: 2
   character_id: 4
 mado_magi_001:
-  id: 5
   project_id: 3
   character_id: 5
 mado_magi_002:
-  id: 6
   project_id: 3
   character_id: 6
 joker_001:
-  id: 7
   project_id: 4
   character_id: 7
 gin_ei_den:
-  id: 8
   project_id: 5
   character_id: 8
 gin_ei_den:
-  id: 9
   project_id: 5
   character_id: 9
 furai_no_shiren2_001:
-  id: 10
   project_id: 6
   character_id: 3
 furai_no_shiren2_002:
-  id: 11
   project_id: 6
   character_id: 4
 furai_no_shiren2_003:
-  id: 12
   project_id: 6
   character_id: 10
