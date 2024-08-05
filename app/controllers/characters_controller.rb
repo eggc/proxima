@@ -1,4 +1,6 @@
 class CharactersController < ApplicationController
+  include BuildSelectableProject
+
   def index
     @selectable_projects = build_selectable_project
     @characters =
@@ -49,12 +51,5 @@ class CharactersController < ApplicationController
     params
       .require(:character)
       .permit(:name, :gender, :job, :age, :interests, :display_order, project_ids: [])
-  end
-
-  def build_selectable_project
-    Project
-      .where(user: current_user)
-      .order(:display_order)
-      .pluck(:title, :id)
   end
 end

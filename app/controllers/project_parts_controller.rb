@@ -1,4 +1,6 @@
 class ProjectPartsController < ApplicationController
+  include BuildSelectableProject
+
   def index
     @project_parts = ProjectPart.order(:display_order).where(user: current_user)
   end
@@ -40,12 +42,5 @@ class ProjectPartsController < ApplicationController
 
   def project_part_params
     params.require(:project_part).permit(:title, :description, :display_order, :project_id)
-  end
-
-  def build_selectable_project
-    Project
-      .where(user: current_user)
-      .order(:display_order)
-      .pluck(:title, :id)
   end
 end
