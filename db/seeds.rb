@@ -23,4 +23,7 @@ if Rails.env.development?
 
   Character.upsert_all(load_hash_from_fixture('characters.yml'))
   Character.connection.execute("SELECT setval('characters_id_seq', (SELECT MAX(id) FROM characters));")
+
+  ProjectCharacter.upsert_all(load_hash_from_fixture('project_characters.yml'))
+  ProjectCharacter.connection.execute("SELECT setval('project_characters_id_seq', (SELECT MAX(id) FROM project_characters));")
 end

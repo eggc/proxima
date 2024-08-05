@@ -52,3 +52,9 @@ yang:
   name: ヤン・ウェンリー
   age:
   gender: male
+asuka:
+  id: 10
+  user_id: 1
+  name: アスカ
+  age:
+  gender: female

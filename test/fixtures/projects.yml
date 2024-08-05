@@ -4,7 +4,7 @@ my_hero_academia:
   title: 僕のヒーローアカデミア
   media: comic
   release_date: 2014-07-07
-furai_no_shiren:
+furai_no_shiren1:
   id: 2
   user_id: 1
   title: 風来のシレン
@@ -28,3 +28,9 @@ gin_ei_den:
   title: 銀河英雄伝説
   media: novel
   release_date: 1988-12-21
+furai_no_shiren2:
+  id: 6
+  user_id: 1
+  title: 風来のシレン2
+  media: game
+  release_date: 2000-09-27
