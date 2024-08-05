@@ -15,6 +15,12 @@
       <h1>Proxima</h1>
     <% end %>
 
+    <% if flash.alert %>
+      <p style="color:red">
+        <%= flash.alert %>
+      </p>
+    <% end %>
+
     <%= yield %>
 
     <footer style="margin-top:2em;">
