@@ -16,3 +16,6 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 Style/Documentation:
   Enabled: false
+Layout/MultilineMethodCallIndentation:
+  Enabled: true
+  EnforcedStyle: indented
