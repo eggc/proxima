@@ -1,6 +1,10 @@
 class CharactersController < ApplicationController
   def index
-    @characters = Character.order(:display_order).where(user: current_user)
+    @characters =
+      Character
+        .order(:display_order)
+        .where(user: current_user)
+        .preload(:projects)
   end
 
   def new
