@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_05_040856) do
     t.string "job"
     t.integer "age"
     t.text "interests"
+    t.integer "display_order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_characters_on_user_id"
@@ -42,6 +43,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_05_040856) do
     t.string "media"
     t.date "release_date"
     t.text "description"
+    t.integer "display_order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_projects_on_user_id"

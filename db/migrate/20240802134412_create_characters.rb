@@ -7,6 +7,7 @@ class CreateCharacters < ActiveRecord::Migration[7.1]
       t.string :job
       t.integer :age
       t.text :interests
+      t.integer :display_order
       t.timestamps
     end
   end
