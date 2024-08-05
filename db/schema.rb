@@ -55,6 +55,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_05_072828) do
     t.string "media"
     t.date "release_date"
     t.text "description"
+    t.string "visibility", default: "private", null: false
     t.integer "display_order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -5,6 +5,7 @@ my_hero_academia:
   media: comic
   release_date: 2014-07-07
   display_order: 1
+  visibility: public
 furai_no_shiren1:
   id: 2
   user_id: 1
@@ -12,6 +13,7 @@ furai_no_shiren1:
   media: game
   release_date: 1995-12-01
   display_order: 2
+  visibility: public
 mado_magi:
   id: 3
   user_id: 1
@@ -19,6 +21,7 @@ mado_magi:
   media: anime
   release_date: 2011-01-07
   display_order: 4
+  visibility: public
 joker:
   id: 4
   user_id: 1
@@ -26,6 +29,7 @@ joker:
   media: movie
   release_date: 2019-10-04
   display_order: 1
+  visibility: private
 gin_ei_den:
   id: 5
   user_id: 2
@@ -33,6 +37,7 @@ gin_ei_den:
   media: novel
   release_date: 1988-12-21
   display_order: 2
+  visibility: private
 furai_no_shiren2:
   id: 6
   user_id: 1
@@ -40,3 +45,4 @@ furai_no_shiren2:
   media: game
   release_date: 2000-09-27
   display_order: 3
+  visibility: public

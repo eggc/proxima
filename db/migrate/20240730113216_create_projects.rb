@@ -6,6 +6,7 @@ class CreateProjects < ActiveRecord::Migration[7.1]
       t.string :media
       t.date :release_date
       t.text :description
+      t.string :visibility, null: false, default: 'private'
       t.integer :display_order
       t.timestamps
     end
