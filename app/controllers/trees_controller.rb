@@ -1,5 +1,5 @@
 class TreesController < ApplicationController
   def show
-    @projects = Project.order(:display_order).where(user: current_user)
+    @projects = policy_scope(Project).order(:visibility, :display_order)
   end
 end
