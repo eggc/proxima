@@ -1,9 +1,11 @@
 class CharactersController < ApplicationController
   def index
+    @selectable_projects = build_selectable_project
     @characters =
       Character
-        .order(:display_order)
         .where(user: current_user)
+        .filter_by_project_id(params[:project_id])
+        .order(:display_order)
         .preload(:projects)
   end
 
