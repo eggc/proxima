@@ -1,6 +1,6 @@
 class CharactersController < ApplicationController
   def index
-    @characters = Character.where(user: current_user)
+    @characters = Character.order(:display_order).where(user: current_user)
   end
 
   def new
@@ -32,6 +32,6 @@ class CharactersController < ApplicationController
   private
 
   def character_params
-    params.require(:character).permit(:name, :gender, :job, :age, :interests)
+    params.require(:character).permit(:name, :gender, :job, :age, :interests, :display_order)
   end
 end

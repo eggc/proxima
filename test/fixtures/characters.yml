@@ -4,57 +4,67 @@ deku:
   name: 緑谷出久
   age: 16
   gender: male
+  display_order: 1
 bakugo:
   id: 2
   user_id: 1
   name: 爆豪勝己
   age: 17
   gender: male
+  display_order: 2
 shiren:
   id: 3
   user_id: 1
   name: シレン
   age:
   gender: male
+  display_order: 3
 koppa:
   id: 4
   user_id: 1
   name: コッパ
   age:
   gender:
+  display_order: 4
 madoka:
   id: 5
   user_id: 1
   name: 鹿目まどか
   age: 14
   gender: female
+  display_order: 6
 homura:
   id: 6
   user_id: 1
   name: 暁美ほむら
   age: 13
   gender: female
+  display_order: 7
 joker:
   id: 7
   user_id: 1
   name: アーサー・フレック
   age:
   gender: male
+  display_order: 8
 reinhardt:
   id: 8
   user_id: 2
   name: ラインハルト
   age:
   gender: male
+  display_order: 1
 yang:
   id: 9
   user_id: 2
   name: ヤン・ウェンリー
   age:
   gender: male
+  display_order: 2
 asuka:
   id: 10
   user_id: 1
   name: アスカ
   age:
   gender: female
+  display_order: 5
