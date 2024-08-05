@@ -1,0 +1,21 @@
+my_hero_academia_001:
+  id: 1
+  user_id: 1
+  project_id: 1
+  title: 緑谷出久：オリジン
+  description: 多くの人間が“個性”という力を持つ。だが、それは必ずしも正義の為の力ではない。しかし、避けられぬ悪が存在する様に、そこには必ず我らヒーローがいる！　ん？　私が誰かって？　HA‐HA‐HA‐HA‐HA！　さぁ、始まるぞ少年！　君だけの夢に突き進め！　“Plus Ultra”!!
+  display_order: 1
+my_hero_academia_002:
+  id: 2
+  user_id: 1
+  project_id: 1
+  title: 猛れクソナード
+  description: ついに始まります「戦闘訓練」。やっぱ緊張するけど、皆に負けない様に頑張ろ…って、えっ、訓練の相手ってかっちゃん！　強いのは知ってる。でも僕も昔のままじゃないんだ！　勝つ為に全力で！　“Plus Ultra”!!
+  display_order: 2
+my_hero_academia_003:
+  id: 3
+  user_id: 1
+  project_id: 1
+  title: オールマイト
+  description: 敵連合だか知らねぇが、オールマイトを殺しに来たぁ？　デクの野郎がピンチだぁ？　はっ！　クソモブどもが調子に乗りやがって！　邪魔なヤツは、全部まとめて俺がぶっ潰す！　“Plus Ultra”!!
+  display_order: 3
