@@ -4,7 +4,8 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @project = Project.new
+    max_order = Project.where(user: current_user).maximum(:display_order)
+    @project = Project.new(display_order: max_order + 1)
   end
 
   def edit

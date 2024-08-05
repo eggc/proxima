@@ -8,7 +8,8 @@ class CharactersController < ApplicationController
   end
 
   def new
-    @character = Character.new
+    max_order = Character.where(user: current_user).maximum(:display_order)
+    @character = Character.new(display_order: max_order + 1)
   end
 
   def edit
