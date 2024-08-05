@@ -6,7 +6,7 @@
     <%= character.job %>
     <%= character.age %>
     <%= character.interests %>
-    <%= character.projects&.map(&:title) %>
+    <%= character.projects&.map(&:title) if hidden_columns.exclude?(:projects) %>
     <%= link_to("edit", edit_character_path(character)) %>
     <%= link_to("destroy", character_path(character), data: { turbo_method: :delete }) %>
   </div>

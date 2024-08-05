@@ -5,6 +5,7 @@
     <%= project.media %>
     <%= project.description %>
     <%= project.release_date %>
+    <%= link_to("show", project_path(project)) %>
     <%= link_to("edit", edit_project_path(project)) %>
     <%= link_to("destroy", project_path(project), data: { turbo_method: :delete }) %>
   </div>

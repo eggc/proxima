@@ -3,6 +3,10 @@ class ProjectsController < ApplicationController
     @projects = Project.order(:display_order).where(user: current_user)
   end
 
+  def show
+    @project = Project.where(user: current_user).find(params[:id])
+  end
+
   def new
     max_order = Project.where(user: current_user).maximum(:display_order)
     @project = Project.new(display_order: max_order + 1)

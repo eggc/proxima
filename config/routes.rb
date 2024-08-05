@@ -8,6 +8,6 @@ Rails.application.routes.draw do
 
   root 'roots#show'
   resource :user, only: :show
-  resources :projects, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :projects, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :characters, only: [:index, :new, :create, :edit, :update, :destroy]
 end
