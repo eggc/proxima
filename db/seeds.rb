@@ -15,15 +15,25 @@ if Rails.env.development?
     yaml.values
   end
 
+  def reset_id_sequence(model)
+    table_name = model.table_name
+    sequence_name = "#{table_name}_id_seq"
+    sql = "SELECT setval('#{sequence_name}', (SELECT MAX(id) FROM #{table_name}));"
+    model.connection.execute(sql)
+  end
+
   User.upsert_all(load_hash_from_fixture('users.yml'))
-  User.connection.execute("SELECT setval('users_id_seq', (SELECT MAX(id) FROM users));")
+  reset_id_sequence(User)
 
   Project.upsert_all(load_hash_from_fixture('projects.yml'))
-  Project.connection.execute("SELECT setval('projects_id_seq', (SELECT MAX(id) FROM projects));")
+  reset_id_sequence(Project)
 
   Character.upsert_all(load_hash_from_fixture('characters.yml'))
-  Character.connection.execute("SELECT setval('characters_id_seq', (SELECT MAX(id) FROM characters));")
+  reset_id_sequence(Character)
 
   ProjectCharacter.insert_all(load_hash_from_fixture('project_characters.yml'))
-  ProjectCharacter.connection.execute("SELECT setval('project_characters_id_seq', (SELECT MAX(id) FROM project_characters));")
+  reset_id_sequence(ProjectCharacter)
+
+  ProjectPart.upsert_all(load_hash_from_fixture('project_parts.yml'))
+  reset_id_sequence(ProjectPart)
 end
