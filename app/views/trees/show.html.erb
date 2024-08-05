@@ -1,0 +1,14 @@
+<% @projects.each do |project| %>
+  <ul>
+    <li>
+      <%= link_to(project.title, project_path(project)) %>
+      <ul>
+        <% project.characters.each do |character| %>
+          <li>
+            <%= link_to(character.name, character_path(character)) %>
+          </li>
+        <% end %>
+      </ul>
+    </li>
+  </ul>
+<% end %>
