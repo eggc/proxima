@@ -4,33 +4,39 @@ my_hero_academia:
   title: 僕のヒーローアカデミア
   media: comic
   release_date: 2014-07-07
+  display_order: 1
 furai_no_shiren1:
   id: 2
   user_id: 1
   title: 風来のシレン
   media: game
   release_date: 1995-12-01
+  display_order: 2
 mado_magi:
   id: 3
   user_id: 1
   title: 魔法少女まどか☆マギカ
   media: anime
   release_date: 2011-01-07
+  display_order: 4
 joker:
   id: 4
   user_id: 1
   title: ジョーカー
   media: movie
   release_date: 2019-10-04
+  display_order: 1
 gin_ei_den:
   id: 5
   user_id: 2
   title: 銀河英雄伝説
   media: novel
   release_date: 1988-12-21
+  display_order: 2
 furai_no_shiren2:
   id: 6
   user_id: 1
   title: 風来のシレン2
   media: game
   release_date: 2000-09-27
+  display_order: 3

@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.where(user: current_user)
+    @projects = Project.order(:display_order).where(user: current_user)
   end
 
   def new
@@ -32,6 +32,6 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:title, :media, :description)
+    params.require(:project).permit(:title, :media, :description, :display_order)
   end
 end

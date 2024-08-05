@@ -3,6 +3,7 @@
     <div>title: <%= f.text_field(:title) %></div>
     <div>media: <%= f.select(:media, Project.media) %></div>
     <div>description: <%= f.text_area(:description) %></div>
+    <div>display order: <%= f.number_field(:display_order) %></div>
     <div><%= f.submit %></div>
   </div>
 <% end %>
