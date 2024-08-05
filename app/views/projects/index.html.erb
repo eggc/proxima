@@ -1,14 +1,17 @@
-<% @projects.each do |project| %>
-  <div>
-    <%= project.display_order %>
-    <%= project.title %>
-    <%= project.media %>
-    <%= project.description %>
-    <%= project.release_date %>
-    <%= link_to("show", project_path(project)) %>
-    <%= link_to("edit", edit_project_path(project)) %>
-    <%= link_to("destroy", project_path(project), data: { turbo_method: :delete }) %>
-  </div>
-<% end %>
+<table>
+  <% @projects.each do |project| %>
+    <tr>
+      <td><%= project.visibility %></td>
+      <td><%= project.display_order %></td>
+      <td><%= project.title %></td>
+      <td><%= project.media %></td>
+      <td><%= project.description %></td>
+      <td><%= project.release_date %></td>
+      <td><%= link_to("show", project_path(project)) %></td>
+      <td><%= link_to("edit", edit_project_path(project)) %></td>
+      <td><%= link_to("destroy", project_path(project), data: { turbo_method: :delete }) %></td>
+    </tr>
+  <% end %>
+</table>
 
 <%= link_to("new", new_project_path) %>
