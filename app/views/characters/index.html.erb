@@ -3,18 +3,6 @@
   <%= f.submit "Search" %>
 <% end %>
 
-<% @characters.each do |character| %>
-  <div>
-    <%= character.display_order %>
-    <%= character.name %>
-    <%= character.gender %>
-    <%= character.job %>
-    <%= character.age %>
-    <%= character.interests %>
-    <%= character.projects&.map(&:title) %>
-    <%= link_to("edit", edit_character_path(character)) %>
-    <%= link_to("destroy", character_path(character), data: { turbo_method: :delete }) %>
-  </div>
-<% end %>
+<%= render("shared/character_table", characters: @characters) %>
 
 <%= link_to("new", new_character_path) %>
