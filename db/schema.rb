@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_05_040856) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_05_072828) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -35,6 +35,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_05_040856) do
     t.index ["character_id"], name: "index_project_characters_on_character_id"
     t.index ["project_id", "character_id"], name: "index_project_characters_on_project_id_and_character_id", unique: true
     t.index ["project_id"], name: "index_project_characters_on_project_id"
+  end
+
+  create_table "project_parts", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "project_id", null: false
+    t.string "title", null: false
+    t.text "description"
+    t.integer "display_order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_project_parts_on_project_id"
+    t.index ["user_id"], name: "index_project_parts_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -64,5 +76,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_05_040856) do
   add_foreign_key "characters", "users"
   add_foreign_key "project_characters", "characters"
   add_foreign_key "project_characters", "projects"
+  add_foreign_key "project_parts", "projects"
+  add_foreign_key "project_parts", "users"
   add_foreign_key "projects", "users"
 end
