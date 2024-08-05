@@ -1,0 +1,2 @@
+class ProjectCharacter < ApplicationRecord
+end
