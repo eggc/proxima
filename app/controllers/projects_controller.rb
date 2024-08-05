@@ -1,10 +1,10 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.order(:display_order).where(user: current_user)
+    @projects = Project.public_or_owned_by(current_user).order(:display_order)
   end
 
   def show
-    @project = Project.where(user: current_user).find(params[:id])
+    @project = Project.public_or_owned_by(current_user).find(params[:id])
   end
 
   def new
