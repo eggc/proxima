@@ -1,3 +1,6 @@
 <h2><%= @project.title %></h2>
-Characters:
+<h3>Characters</h3>
 <%= render("shared/character_table", characters: @project.characters, hidden_columns: [:projects]) %>
+
+<h3>Parts</h3>
+<%= render('shared/project_part_table', project_parts: @project.project_parts, hidden_columns: [:project]) %>

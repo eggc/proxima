@@ -1,0 +1,11 @@
+<% project_parts.each do |project_part| %>
+  <div>
+    <%= project_part.display_order %>
+    <%= project_part.title %>
+    <%= project_part.description.truncate(20) %>
+    <%= project_part.project.title if hidden_columns.exclude?(:project) %>
+    <%= link_to("show", project_part_path(project_part)) %>
+    <%= link_to("edit", edit_project_part_path(project_part)) %>
+    <%= link_to("destroy", project_part_path(project_part), data: { turbo_method: :delete }) %>
+  </div>
+<% end %>
