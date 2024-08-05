@@ -1,0 +1,11 @@
+<div>
+  <div>name: <%= @character.name %></div>
+  <div>gender: <%= @character.gender %></div>
+  <div>job: <%= @character.job %></div>
+  <div>age: <%= @character.age %></div>
+  <div>interests: <%= @character.interests %></div>
+  <div>display order: <%= @character.display_order %></div>
+  <div>
+    related projects: <%= @character.projects.map(&:title) %>
+  </div>
+</div>

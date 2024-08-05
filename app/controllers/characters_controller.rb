@@ -9,6 +9,10 @@ class CharactersController < ApplicationController
         .preload(:projects)
   end
 
+  def show
+    @character = Character.where(user: current_user).find(params[:id])
+  end
+
   def new
     max_order = Character.where(user: current_user).maximum(:display_order)
     @character = Character.new(display_order: max_order + 1)
