@@ -2,10 +2,17 @@
   <ul>
     <li>
       <%= link_to(project.title, project_path(project)) %>
+
       <ul>
+        <% project.project_parts.each do |project_part| %>
+          <li>
+            part: <%= link_to(project_part.title, project_part_path(project_part)) %>
+          </li>
+        <% end %>
+
         <% project.characters.each do |character| %>
           <li>
-            <%= link_to(character.name, character_path(character)) %>
+            character: <%= link_to(character.name, character_path(character)) %>
           </li>
         <% end %>
       </ul>

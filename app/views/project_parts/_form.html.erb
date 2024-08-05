@@ -1,0 +1,9 @@
+<%= form_with(model: @project_part) do |f| %>
+  <div>
+    <div>title: <%= f.text_field(:title) %></div>
+    <div>description: <%= f.text_area(:description) %></div>
+    <div>display order: <%= f.number_field(:display_order) %></div>
+    <div>project: <%= f.select(:project_id, @selectable_projects) %></div>
+    <div><%= f.submit %></div>
+  </div>
+<% end %>

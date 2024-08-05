@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   resource :tree, only: :show
   resource :user, only: :show
   resources :projects, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :project_parts, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :characters, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 end
