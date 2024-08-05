@@ -6,3 +6,7 @@ bob:
   id: 2
   email: bob@example.com
   encrypted_password: $2a$12$ckbp06wvGinqpmr4yNYTremZcXQG6ZG/nj1QKN8D8askrs27XHfIC
+charlie:
+  id: 3
+  email: charlie@example.com
+  encrypted_password: $2a$12$ckbp06wvGinqpmr4yNYTremZcXQG6ZG/nj1QKN8D8askrs27XHfIC
