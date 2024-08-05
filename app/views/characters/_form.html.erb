@@ -6,6 +6,7 @@
     <div>age: <%= f.text_field(:age) %></div>
     <div>interests: <%= f.text_area(:interests) %></div>
     <div>display order: <%= f.number_field(:display_order) %></div>
+    <div>related projects: <%= f.select(:project_ids, @selectable_projects, selected: @selected_project_ids, multiple: true) %></div>
     <div><%= f.submit %></div>
   </div>
 <% end %>

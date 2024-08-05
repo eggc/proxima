@@ -10,10 +10,13 @@ class CharactersController < ApplicationController
   def new
     max_order = Character.where(user: current_user).maximum(:display_order)
     @character = Character.new(display_order: max_order + 1)
+    @selectable_projects = build_selectable_project
   end
 
   def edit
     @character = Character.where(user: current_user).find(params[:id])
+    @selected_project_ids = @character.projects.ids
+    @selectable_projects = build_selectable_project
   end
 
   def create
@@ -37,6 +40,15 @@ class CharactersController < ApplicationController
   private
 
   def character_params
-    params.require(:character).permit(:name, :gender, :job, :age, :interests, :display_order)
+    params
+      .require(:character)
+      .permit(:name, :gender, :job, :age, :interests, :display_order, project_ids: [])
+  end
+
+  def build_selectable_project
+    Project
+      .where(user: current_user)
+      .order(:display_order)
+      .pluck(:title, :id)
   end
 end
