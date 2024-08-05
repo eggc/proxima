@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   after_action :verify_pundit_authorization
 
   def index
-    @projects = policy_scope(Project).order(:display_order)
+    @projects = policy_scope(Project).order(:visibility, :display_order)
   end
 
   def show
