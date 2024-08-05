@@ -18,6 +18,7 @@ class CharactersController < ApplicationController
   def new
     max_order = Character.where(user: current_user).maximum(:display_order)
     @character = Character.new(display_order: max_order + 1)
+    @selected_project_ids = [params[:project_id]].compact
     @selectable_projects = build_selectable_project
   end
 

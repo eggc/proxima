@@ -1,6 +1,11 @@
 <h2><%= @project.title %></h2>
-<h3>Characters</h3>
+
+<div style="display: flex; align-items: center;">
+  <h3>Characters</h3> / <%= link_to("new", new_character_path(project_id: @project.id)) %>
+</div>
 <%= render("shared/character_table", characters: @project.characters, hidden_columns: [:projects]) %>
 
-<h3>Parts</h3>
+<div style="display: flex; align-items: center;">
+  <h3>Parts</h3> / <%= link_to("new", new_project_part_path(project_id: @project.id)) %>
+</div>
 <%= render('shared/project_part_table', project_parts: @project.project_parts, hidden_columns: [:project]) %>

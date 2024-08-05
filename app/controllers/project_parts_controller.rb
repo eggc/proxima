@@ -12,6 +12,7 @@ class ProjectPartsController < ApplicationController
   def new
     max_order = ProjectPart.where(user: current_user).maximum(:display_order)
     @project_part = ProjectPart.new(display_order: max_order + 1)
+    @project_part.project_id = params[:project_id]
     @selectable_projects = build_selectable_project
   end
 
