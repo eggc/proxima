@@ -52,7 +52,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_05_072828) do
   create_table "projects", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "title", null: false
-    t.string "media"
+    t.string "media", default: "unspecified", null: false
     t.date "release_date"
     t.text "description"
     t.string "visibility", default: "private", null: false
