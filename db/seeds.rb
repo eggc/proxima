@@ -9,31 +9,14 @@
 #   end
 
 if Rails.env.development?
-  def load_hash_from_fixture(fixture_file_name)
-    path = "test/fixtures/#{fixture_file_name}"
-    yaml = YAML.safe_load_file(path, permitted_classes: [Date])
-    yaml.values
-  end
+  require_relative './seed_helper'
 
-  def reset_id_sequence(model)
-    table_name = model.table_name
-    sequence_name = "#{table_name}_id_seq"
-    sql = "SELECT setval('#{sequence_name}', (SELECT MAX(id) FROM #{table_name}));"
-    model.connection.execute(sql)
-  end
+  helper = SeedHelper.new
 
-  User.upsert_all(load_hash_from_fixture('users.yml'))
-  reset_id_sequence(User)
-
-  Project.upsert_all(load_hash_from_fixture('projects.yml'))
-  reset_id_sequence(Project)
-
-  Character.upsert_all(load_hash_from_fixture('characters.yml'))
-  reset_id_sequence(Character)
-
-  ProjectCharacter.insert_all(load_hash_from_fixture('project_characters.yml'))
-  reset_id_sequence(ProjectCharacter)
-
-  ProjectPart.upsert_all(load_hash_from_fixture('project_parts.yml'))
-  reset_id_sequence(ProjectPart)
+  helper.import(User)
+  helper.import(Project)
+  helper.import(Character)
+  helper.import(ProjectCharacter, method: :insert)
+  helper.import(ProjectPart)
+  helper.import(Idea)
 end
