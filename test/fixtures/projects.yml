@@ -46,3 +46,11 @@ furai_no_shiren2:
   release_date: 2000-09-27
   display_order: 3
   visibility: public
+charlie_private_project:
+  id: 7
+  user_id: 3
+  title: The star gazer
+  media: unspecified
+  release_date:
+  display_order: 1
+  visibility: private

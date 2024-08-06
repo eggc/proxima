@@ -34,3 +34,9 @@ furai_no_shiren2_002:
 furai_no_shiren2_003:
   project_id: 6
   character_id: 10
+charlie_private_project_001:
+  project_id: 7
+  character_id: 11
+charlie_private_project_002:
+  project_id: 7
+  character_id: 12

@@ -68,3 +68,17 @@ asuka:
   age:
   gender: female
   display_order: 5
+charlie_private_project_001:
+  id: 11
+  user_id: 3
+  name: 少年
+  age: 16
+  gender: male
+  display_order: 1
+charlie_private_project_002:
+  id: 12
+  user_id: 3
+  name: 男
+  age: 38
+  gender: male
+  display_order: 2
