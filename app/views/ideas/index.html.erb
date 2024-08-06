@@ -2,8 +2,8 @@
   <% @ideas.each do |idea| %>
     <tr>
       <td><%= idea.display_order %></td>
-      <td><%= idea.emote %></td>
       <td width="400"><%= idea.body %></td>
+      <td><%= idea.emote_icon %></td>
       <td><%= idea.created_at.to_date %></td>
       <td><%= link_to("edit", edit_idea_path(idea)) %></td>
       <td><%= link_to("destroy", idea_path(idea), data: { turbo_method: :delete }) %></td>
