@@ -1,0 +1,2 @@
+class IdeaPolicy < AbstractUserItemPolicy
+end
