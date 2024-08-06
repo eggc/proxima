@@ -1,5 +1,7 @@
 class Idea < ApplicationRecord
   belongs_to :user
+  has_many :idea_projects
+  has_many :projects, through: :idea_projects
 
   enum :emote, %w[blank hate love think star].to_h { [_1, _1] }, prefix: true
 
