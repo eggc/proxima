@@ -1,5 +1,5 @@
 <%= form_with(method: :get) do |f| %>
-  <%= f.select(:project_id, @selectable_projects, include_blank: true) %>
+  <%= f.select(:project_id, @selectable_projects, selected: params[:project_id], include_blank: true) %>
   <%= f.submit "Search" %>
 <% end %>
 
