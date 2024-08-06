@@ -3,6 +3,7 @@ class IdeasController < ApplicationController
 
   def index
     @ideas = policy_scope(Idea).order(:display_order)
+    @ideas.where!(emote: params[:emote]) if params[:emote].present?
   end
 
   def edit

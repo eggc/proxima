@@ -1,3 +1,8 @@
+<%= form_with(method: :get) do |f| %>
+  <%= f.select(:emote, Idea.emotes, selected: params[:emote], include_blank: true) %>
+  <%= f.submit "Search" %>
+<% end %>
+
 <table>
   <% @ideas.each do |idea| %>
     <tr>
