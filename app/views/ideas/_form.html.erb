@@ -1,0 +1,8 @@
+<%= form_with(model: @idea) do |f| %>
+  <div>
+    <div>body: <%= f.text_area(:body) %></div>
+    <div>emote: <%= f.select(:emote, Idea.emotes) %></div>
+    <div>display order: <%= f.number_field(:display_order) %></div>
+    <div><%= f.submit %></div>
+  </div>
+<% end %>

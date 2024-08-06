@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   root 'roots#show'
   resource :tree, only: :show
   resource :user, only: :show
+  resources :ideas, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :projects, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :project_parts, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :characters, only: [:index, :show, :new, :create, :edit, :update, :destroy]
