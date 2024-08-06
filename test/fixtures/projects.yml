@@ -46,11 +46,19 @@ furai_no_shiren2:
   release_date: 2000-09-27
   display_order: 3
   visibility: public
-charlie_private_project:
+charlie_private_project001:
   id: 7
   user_id: 3
   title: The star gazer
   media: unspecified
   release_date:
   display_order: 1
+  visibility: private
+charlie_private_project002:
+  id: 8
+  user_id: 3
+  title: The ice cream wars
+  media: unspecified
+  release_date:
+  display_order: 2
   visibility: private

@@ -12,11 +12,11 @@ if Rails.env.development?
   require_relative './seed_helper'
 
   helper = SeedHelper.new
-
   helper.import(User)
+  helper.import(Idea)
   helper.import(Project)
+  helper.import(IdeaProject, method: :insert)
   helper.import(Character)
   helper.import(ProjectCharacter, method: :insert)
   helper.import(ProjectPart)
-  helper.import(Idea)
 end
