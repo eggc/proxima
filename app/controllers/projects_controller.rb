@@ -3,6 +3,7 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = policy_scope(Project).order(:visibility, :display_order)
+    @projects.where!(visibility: params[:visibility]) if params[:visibility].present?
   end
 
   def show
