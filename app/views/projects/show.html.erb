@@ -4,6 +4,7 @@
   <h3>Ideas</h3> / <%= link_to("new", ideas_path) %>
 </div>
 <%= render("shared/idea_table", ideas: @project.ideas, hidden_columns: [:projects]) %>
+<%= link_to("new", ideas_path(project_id: @project.id), data: { turbo_method: :post }) %>
 
 <div style="display: flex; align-items: center;">
   <h3>Characters</h3> / <%= link_to("new", new_character_path(project_id: @project.id)) %>
