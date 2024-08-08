@@ -5,6 +5,13 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :rescue_not_authorized_error
 
+  helper_method :current_project
+
+  def current_project
+    @current_project ||=
+      Project.where(user: current_user).find_by(id: cookies[:current_project_id])
+  end
+
   private
 
   def rescue_not_authorized_error

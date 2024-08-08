@@ -26,6 +26,7 @@
     <footer style="margin-top:2em;">
       <% if signed_in? %>
         <nav>
+          <%= link_to(current_project.title, project_path(current_project)) if current_project %> |
           <%= link_to('root', root_path) %> |
           <%= link_to('ideas', ideas_path) %> |
           <%= link_to('tree', tree_path) %> |
