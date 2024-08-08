@@ -3,22 +3,6 @@
   <%= f.submit "Search" %>
 <% end %>
 
-<table>
-  <% @ideas.each do |idea| %>
-    <tr>
-      <td><%= idea.display_order %></td>
-      <td width="400"><%= idea.body %></td>
-      <td><%= idea.emote_icon %></td>
-      <td>
-        <% idea.projects.each do |project| %>
-         <div><%= project.title %></div>
-        <% end %>
-      </td>
-      <td><%= idea.created_at.to_date %></td>
-      <td><%= link_to("edit", edit_idea_path(idea)) %></td>
-      <td><%= link_to("destroy", idea_path(idea), data: { turbo_method: :delete }) %></td>
-    </tr>
-  <% end %>
-</table>
+<%= render('shared/idea_table', ideas: @ideas, hidden_columns: [])%>
 
 <%= link_to("new", ideas_path, data: { turbo_method: :post }) %>

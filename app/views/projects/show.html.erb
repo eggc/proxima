@@ -1,6 +1,11 @@
 <h2><%= @project.title %></h2>
 
 <div style="display: flex; align-items: center;">
+  <h3>Ideas</h3> / <%= link_to("new", ideas_path) %>
+</div>
+<%= render("shared/idea_table", ideas: @project.ideas, hidden_columns: [:projects]) %>
+
+<div style="display: flex; align-items: center;">
   <h3>Characters</h3> / <%= link_to("new", new_character_path(project_id: @project.id)) %>
 </div>
 <%= render("shared/character_table", characters: @project.characters, hidden_columns: [:projects]) %>
