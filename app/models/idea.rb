@@ -5,6 +5,8 @@ class Idea < ApplicationRecord
 
   enum :emote, %w[blank hate love think star].to_h { [_1, _1] }, prefix: true
 
+  scope :filter_by_project, ->(project) { joins(:idea_projects).merge(IdeaProject.where(project_id: project.id)) }
+
   def emote_icon
     {
       'hate' => "\u{1F621}",

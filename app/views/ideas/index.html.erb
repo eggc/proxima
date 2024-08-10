@@ -3,6 +3,6 @@
   <%= f.submit "Search" %>
 <% end %>
 
-<%= render('shared/idea_table', ideas: @ideas, hidden_columns: [])%>
+<%= render('shared/idea_table', ideas: @ideas, hidden_columns: [:projects])%>
 
 <%= link_to("new", ideas_path, data: { turbo_method: :post }) %>
