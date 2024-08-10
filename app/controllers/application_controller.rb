@@ -9,7 +9,8 @@ class ApplicationController < ActionController::Base
 
   def current_project
     @current_project ||=
-      Project.where(user: current_user).find_by(id: cookies[:current_project_id])
+      Project.where(user: current_user).find_by(id: cookies[:current_project_id]) ||
+      Project.where(user: current_user).order(:display_order).first
   end
 
   private
