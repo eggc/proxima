@@ -2,7 +2,7 @@ class IdeasController < ApplicationController
   after_action :verify_pundit_authorization
 
   def index
-    @ideas = policy_scope(Idea).filter_by_project(current_workspace).order(:display_order)
+    @ideas = policy_scope(Idea).where(workspace: current_workspace).order(:display_order)
     @ideas.where!(emote: params[:emote]) if params[:emote].present?
   end
 

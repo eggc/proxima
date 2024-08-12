@@ -1,5 +1,7 @@
 class Idea < ApplicationRecord
   belongs_to :user
+  belongs_to :workspace
+
   has_many :idea_projects, dependent: :destroy
   has_many :projects, through: :idea_projects
 
