@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_12_115612) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_06_084541) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,12 +39,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_12_115612) do
 
   create_table "ideas", force: :cascade do |t|
     t.bigint "user_id", null: false
+    t.bigint "workspace_id", null: false
     t.string "body", default: "", null: false
     t.string "emote", default: "blank", null: false
     t.integer "display_order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_ideas_on_user_id"
+    t.index ["workspace_id"], name: "index_ideas_on_workspace_id"
   end
 
   create_table "project_characters", force: :cascade do |t|
@@ -109,6 +111,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_12_115612) do
   add_foreign_key "idea_projects", "ideas"
   add_foreign_key "idea_projects", "projects"
   add_foreign_key "ideas", "users"
+  add_foreign_key "ideas", "workspaces"
   add_foreign_key "project_characters", "characters"
   add_foreign_key "project_characters", "projects"
   add_foreign_key "project_parts", "projects"
