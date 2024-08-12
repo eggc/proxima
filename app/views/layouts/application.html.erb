@@ -27,14 +27,19 @@
       <% if signed_in? %>
         <nav>
           <%= link_to(current_project.title, project_path(current_project)) if current_project %> |
-          <%= link_to('root', root_path) %> |
           <%= link_to('ideas', ideas_path) %> |
-          <%= link_to('tree', tree_path) %> |
-          <%= link_to('user', user_path) %> |
-          <%= link_to('projects', projects_path) %> |
-          <%= link_to('project_parts', project_parts_path) %> |
-          <%= link_to('characters', characters_path) %> |
           <%= link_to('sign out', destroy_user_session_path, data: { turbo_method: :delete }) %>
+
+          <div>
+            廃止検討中
+            <%= link_to('root', root_path) %> |
+            <%= link_to('tree', tree_path) %> |
+            <%= link_to('user', user_path) %> |
+            <%= link_to('projects', projects_path) %> |
+            <%= link_to('project_parts', project_parts_path) %> |
+            <%= link_to('characters', characters_path) %> |
+
+          </div>
         </nav>
         <% end %>
       </footer>
