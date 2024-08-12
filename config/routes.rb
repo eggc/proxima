@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   root 'roots#show'
+
+  resources :current_workspaces, only: :update
   resource :tree, only: :show
   resource :user, only: :show
   resources :ideas, only: [:index, :create, :edit, :update, :destroy]

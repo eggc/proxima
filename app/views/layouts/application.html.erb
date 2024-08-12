@@ -15,6 +15,17 @@
       <h1>Proxima</h1>
     <% end %>
 
+    <header style="margin-bottom:2em;">
+      <% header_context[:workspaces].each do |workspace| %>
+        <% if workspace == current_workspace %>
+          ▶︎ <%= workspace.name %>
+        <% else %>
+          <%= link_to(workspace.name, current_workspace_path(id: workspace.id), data: { turbo_method: :put }) %>
+        <% end %>
+        |
+      <% end %>
+    </header>
+
     <% if flash.alert %>
       <p style="color:red">
         <%= flash.alert %>
@@ -26,7 +37,7 @@
     <footer style="margin-top:2em;">
       <% if signed_in? %>
         <nav>
-          <%= link_to(current_project.title, project_path(current_project)) if current_project %> |
+
           <%= link_to('ideas', ideas_path) %> |
           <%= link_to('sign out', destroy_user_session_path, data: { turbo_method: :delete }) %>
 

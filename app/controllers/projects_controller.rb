@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    cookies[:current_project_id] = params[:id]
+    cookies[:current_workspace_id] = params[:id]
     @project = Project.find(params[:id])
     authorize(@project)
   end

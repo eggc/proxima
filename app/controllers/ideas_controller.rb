@@ -2,7 +2,7 @@ class IdeasController < ApplicationController
   after_action :verify_pundit_authorization
 
   def index
-    @ideas = policy_scope(Idea).filter_by_project(current_project).order(:display_order)
+    @ideas = policy_scope(Idea).filter_by_project(current_workspace).order(:display_order)
     @ideas.where!(emote: params[:emote]) if params[:emote].present?
   end
 
@@ -14,7 +14,7 @@ class IdeasController < ApplicationController
   def create
     max_order = Idea.where(user: current_user).maximum(:display_order) || 0
     @idea = Idea.new(user: current_user, display_order: max_order + 1)
-    @idea.idea_projects.build(project_id: current_project.id)
+    @idea.idea_projects.build(project_id: current_workspace.id)
     authorize(@idea)
     @idea.save!
     redirect_back_or_to(ideas_path)

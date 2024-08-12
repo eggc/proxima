@@ -5,12 +5,18 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :rescue_not_authorized_error
 
-  helper_method :current_project
+  helper_method :current_workspace, :header_context
 
-  def current_project
-    @current_project ||=
-      Project.where(user: current_user).find_by(id: cookies[:current_project_id]) ||
-      Project.where(user: current_user).order(:display_order).first
+  def current_workspace
+    @current_workspace ||=
+      Workspace.where(user: current_user).find_by(id: cookies[:current_workspace_id]) ||
+      Workspace.where(user: current_user).order(:display_order).first
+  end
+
+  def header_context
+    @header_context = {
+      workspaces: Workspace.where(user: current_user).order(:display_order)
+    }
   end
 
   private
