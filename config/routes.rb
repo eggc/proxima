@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   root 'roots#show'
 
+  resources :workspaces, only: [:new, :edit, :create, :update, :destroy]
   resources :current_workspaces, only: :update
   resource :tree, only: :show
   resource :user, only: :show

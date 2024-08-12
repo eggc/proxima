@@ -1,0 +1,2 @@
+class WorkspacePolicy < AbstractUserItemPolicy
+end
