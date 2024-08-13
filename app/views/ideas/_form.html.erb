@@ -1,8 +1,22 @@
 <%= form_with(model: @idea) do |f| %>
   <div>
-    <div>body: <%= f.text_area(:body) %></div>
-    <div>emote: <%= f.select(:emote, Idea.emotes) %></div>
-    <div>display order: <%= f.number_field(:display_order) %></div>
-    <div><%= f.submit %></div>
+    <label class="form-control">
+      <div class="label"><span class="label-text">Content</span></div>
+      <%= f.text_area(:body, class: "textarea textarea-bordered") %>
+    </label>
+
+    <label class="form-control">
+      <div class="label"><span class="label-text">Emote</span></div>
+      <%= f.select(:emote, Idea.emotes, {}, { class: "select select-bordered" }) %>
+    </label>
+
+    <label class="form-control">
+      <div class="label"><span class="label-text">Number</span></div>
+      <%= f.number_field(:display_order, class: "input input-bordered") %>
+    </label>
+
+    <div class="pt-4">
+      <%= f.submit(class: "btn btn-wide btn-primary") %>
+    </div>
   </div>
 <% end %>

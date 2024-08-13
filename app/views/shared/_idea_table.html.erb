@@ -1,4 +1,4 @@
-<table>
+<table class="table">
   <% ideas.each do |idea| %>
     <tr>
       <td><%= idea.display_order %></td>
@@ -9,7 +9,7 @@
          <div><%= project.title %></div>
         <% end %>
       </td>
-      <td><%= idea.created_at.to_date %></td>
+      <td><%= idea.updated_at.to_date %></td>
       <td><%= link_to("edit", edit_idea_path(idea), class: "btn btn-sm") %></td>
       <td><%= link_to("destroy", idea_path(idea), class: "btn btn-sm", data: { turbo_method: :delete }) %></td>
     </tr>
