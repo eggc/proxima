@@ -2,7 +2,7 @@ class DotsController < ApplicationController
   after_action :verify_pundit_authorization
 
   def index
-    @dots = policy_scope(Dot).where(workspace: current_workspace).order(:display_order)
+    @dots = policy_scope(Dot).where(workspace: current_workspace).order(display_order: :desc)
     @dots.where!(category: params[:category]) if params[:category].present?
   end
 
