@@ -40,7 +40,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_06_084541) do
   create_table "ideas", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "workspace_id", null: false
-    t.string "body", default: "", null: false
+    t.string "content", default: "", null: false
     t.string "emote", default: "blank", null: false
     t.integer "display_order"
     t.datetime "created_at", null: false

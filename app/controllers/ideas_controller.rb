@@ -36,6 +36,6 @@ class IdeasController < ApplicationController
   private
 
   def idea_params
-    params.require(:idea).permit(:body, :emote, :display_order)
+    params.require(:idea).permit(:content, :emote, :display_order)
   end
 end

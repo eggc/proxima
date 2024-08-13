@@ -3,7 +3,7 @@
     <tr>
       <td><%= idea.display_order %></td>
       <td><%= idea.emote_icon %></td>
-      <td width="400"><%= idea.body %></td>
+      <td width="400"><%= idea.content %></td>
       <td>
         <% hidden_columns.exclude?(:projects) && idea.projects.each do |project| %>
          <div><%= project.title %></div>

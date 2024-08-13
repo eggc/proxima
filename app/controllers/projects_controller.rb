@@ -56,6 +56,6 @@ class ProjectsController < ApplicationController
   def build_selectable_ideas
     Idea.where(user: current_user)
       .order(:display_order)
-      .map { |idea| [idea.emote_icon + idea.body.truncate(30), idea.id] }
+      .map { |idea| [idea.emote_icon + idea.content.truncate(30), idea.id] }
   end
 end

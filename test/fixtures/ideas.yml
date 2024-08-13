@@ -2,41 +2,41 @@ charlie_idea001:
   id: 1
   user_id: 3
   workspace_id: 1
-  body: 夏の激しい暑さの中で冷たいアイスクリームを食べるのが好き
+  content: 夏の激しい暑さの中で冷たいアイスクリームを食べるのが好き
   display_order: 1
   emote: 'love'
 charlie_idea002:
   id: 2
   user_id: 3
   workspace_id: 1
-  body: 不遇な環境でも、めげないで努力して成功する話が好き
+  content: 不遇な環境でも、めげないで努力して成功する話が好き
   display_order: 2
   emote: 'love'
 charlie_idea003:
   id: 3
   user_id: 3
   workspace_id: 1
-  body: たくさんの仲間に囲まれているよりも、一人で孤独に戦っている人の方が応援したくなる
+  content: たくさんの仲間に囲まれているよりも、一人で孤独に戦っている人の方が応援したくなる
   display_order: 3
   emote: 'star'
 charlie_idea004:
   id: 4
   user_id: 3
   workspace_id: 2
-  body: 異世界ものでは、転生する前の家族や友人との別れについて詳しく語ることはない気がする。辛い現実のことを全て忘れて、第二の人生を歩みたいという隠れた願望なのか。それとも、単に現実とかはどうでもいいので妄想の中くらい好き勝手やりたい、という素直な欲望の表れなのか。どちらだろうか。
+  content: 異世界ものでは、転生する前の家族や友人との別れについて詳しく語ることはない気がする。辛い現実のことを全て忘れて、第二の人生を歩みたいという隠れた願望なのか。それとも、単に現実とかはどうでもいいので妄想の中くらい好き勝手やりたい、という素直な欲望の表れなのか。どちらだろうか。
   display_order: 4
   emote: 'think'
 charlie_idea005:
   id: 5
   user_id: 3
   workspace_id: 1
-  body: ピザを食べた。うまい。頭空っぽになるね。
+  content: ピザを食べた。うまい。頭空っぽになるね。
   display_order: 5
   emote: 'love'
 charlie_idea006:
   id: 6
   user_id: 3
   workspace_id: 2
-  body: https://x.com/eggc0/status/1820478057645527415 これいいね。
+  content: https://x.com/eggc0/status/1820478057645527415 これいいね。
   display_order: 5
   emote: 'love'
