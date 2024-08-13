@@ -1,7 +1,17 @@
 <%= form_with(model: @workspace) do |f| %>
   <div>
-    <div>name: <%= f.text_field(:name) %></div>
-    <div>display order: <%= f.number_field(:display_order) %></div>
-    <div><%= f.submit %></div>
+    <label class="form-control">
+      <div class="label"><span class="label-text">Name</span></div>
+      <%= f.text_field(:name) %>
+    </label>
+
+    <label class="form-control">
+      <div class="label"><span class="label-text">Number</span></div>
+      <%= f.number_field(:display_order, class: "input input-bordered") %>
+    </label>
+
+    <div class="pt-4">
+      <%= f.submit(class: "btn btn-wide btn-primary") %>
+    </div>
   </div>
 <% end %>
