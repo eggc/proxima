@@ -13,8 +13,7 @@ class IdeasController < ApplicationController
 
   def create
     max_order = Idea.where(user: current_user).maximum(:display_order) || 0
-    @idea = Idea.new(user: current_user, display_order: max_order + 1)
-    @idea.idea_projects.build(project_id: current_workspace.id)
+    @idea = Idea.new(user: current_user, display_order: max_order + 1, workspace: current_workspace)
     authorize(@idea)
     @idea.save!
     redirect_back_or_to(ideas_path)
