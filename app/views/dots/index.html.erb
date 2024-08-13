@@ -7,4 +7,4 @@
   <%= render('shared/dot_table', dots: @dots, hidden_columns: [:projects])%>
 </div>
 
-<%= link_to("new", dots_path, data: { turbo_method: :post }, class: "btn") %>
+<%= link_to("new", dots_path(category: params[:category]), data: { turbo_method: :post }, class: "btn") %>
