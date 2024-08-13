@@ -1,12 +1,21 @@
 <ul class="menu rounded-box">
   <% @workspaces.each do |workspace| %>
     <li>
-      <%= link_to(workspace.name, edit_workspace_path(workspace)) %>
+      <%= link_to(edit_workspace_path(workspace)) do %>
+        <%= workspace.name %>
+        <% if workspace == current_workspace %>
+          <span class="text-primary">
+            (current workspace)
+          </span>
+        <% end %>
+      <% end %>
       <ul>
         <li><%= link_to('Dots', dots_path) %></li>
         <ul>
           <% workspace.dots.each do |dot| %>
-            <li><%= link_to(dot.content.truncate(40), edit_dot_path(dot)) %></li>
+            <li>
+              <%= link_to(dot.content.truncate(40), edit_dot_path(dot), class: "min-h-8") %>
+            </li>
           <% end %>
         </ul>
         <!-- <li>characters</li>
