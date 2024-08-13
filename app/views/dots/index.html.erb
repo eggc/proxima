@@ -1,12 +1,33 @@
-<div class="flex justify-between">
-  <%= link_to("New Dot", dots_path(category: params[:category]), data: { turbo_method: :post }, class: "btn btn-primary") %>
-
+<div>
   <%= form_with(method: :get) do |f| %>
     <%= f.select(:category, Dot.categories, { selected: params[:category], include_blank: true }, { class: "select select-bordered" }) %>
     <%= f.submit("Search", class: "btn") %>
   <% end %>
 </div>
 
-<div class="p-2">
-  <%= render('shared/dot_table', dots: @dots, hidden_columns: [:projects])%>
+<div class="grid grid-cols-3 gap-4">
+  <div class="card bg-base-100 w-96 shadow-xl">
+    <div class="card-body justify-between">
+      <h2 class="card-title">New Dot</h2>
+      <div class="card-actions">
+        <%= link_to("Create", dots_path(category: params[:category]), data: { turbo_method: :post }, class: "btn btn-primary") %>
+      </div>
+    </div>
+  </div>
+
+  <% @dots.each do |dot| %>
+    <div class="card bg-base-100 w-96 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title"><%= dot.display_order %></h2>
+        <p><%= dot.content %></p>
+        <div class="flex justify-between items-end mt-4">
+          <small class="text-slate-400"><%= dot.updated_at %></small>
+          <div class="card-actions">
+            <%= link_to("edit", edit_dot_path(dot), class: "btn btn-sm") %>
+            <%= turbo_destroy_link_to("destroy", dot_path(dot), confirm: dot.content.present?) %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
