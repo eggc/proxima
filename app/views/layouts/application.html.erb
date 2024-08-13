@@ -23,30 +23,40 @@
 
       <nav>
         <ul class="menu menu-horizontal">
-          <li>
-            <%= link_to('ideas', ideas_path) %>
-          </li>
-          <li>
-            <details>
-              <summary>Workspaces</summary>
-              <ul class="w-max">
-                <% header_context[:workspaces].each do |workspace| %>
-                  <% if workspace == current_workspace %>
-                    <li>
-                      <a class="active"><%= workspace.name %></a>
-                    </li>
-                  <% else %>
-                    <li>
-                      <%= link_to(workspace.name, current_workspace_path(id: workspace.id), data: { turbo_method: :put }) %>
-                    </li>
+          <% if signed_in? %>
+            <li>
+              <%= link_to('Ideas', ideas_path) %>
+            </li>
+            <li>
+              <details>
+                <summary>Workspaces</summary>
+                <ul class="w-max">
+                  <% header_context[:workspaces].each do |workspace| %>
+                    <% if workspace == current_workspace %>
+                      <li>
+                        <a class="active"><%= workspace.name %></a>
+                      </li>
+                    <% else %>
+                      <li>
+                        <%= link_to(workspace.name, current_workspace_path(id: workspace.id), data: { turbo_method: :put }) %>
+                      </li>
+                    <% end %>
                   <% end %>
-                <% end %>
-                <hr />
-                <li><%= link_to('new workspace', new_workspace_path)%></li>
-                <li><%= link_to('edit current workspace', edit_workspace_path(current_workspace)) %></li>
-              </ul>
-            </details>
-          </li>
+                  <hr />
+                  <li><%= link_to('new workspace', new_workspace_path)%></li>
+                  <li><%= link_to('edit current workspace', edit_workspace_path(current_workspace)) %></li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>👤 <%= current_user.email %></summary>
+                <ul class="w-max">
+                  <li><%= link_to('details', user_path) %></li>
+                  <li><%= link_to('sign out', destroy_user_session_path, data: { turbo_method: :delete }) %></li>
+                </ul>
+            </li>
+          <% end %>
         </ul>
       </nav>
     </header>
@@ -64,19 +74,13 @@
     <footer>
       <% if signed_in? %>
         <nav>
-
-
-          <%= link_to('sign out', destroy_user_session_path, data: { turbo_method: :delete }) %>
-
           <div>
             廃止検討中
             <%= link_to('root', root_path) %> |
             <%= link_to('tree', tree_path) %> |
-            <%= link_to('user', user_path) %> |
             <%= link_to('projects', projects_path) %> |
             <%= link_to('project_parts', project_parts_path) %> |
             <%= link_to('characters', characters_path) %> |
-
           </div>
         </nav>
         <% end %>
