@@ -16,22 +16,38 @@
   </head>
 
   <body>
-    <header style="margin-bottom:2em;">
+    <header class="navbar">
       <%= link_to(root_path) do %>
         <h1>Proxima</h1>
       <% end %>
 
       <nav>
-        <% header_context[:workspaces].each do |workspace| %>
-          <% if workspace == current_workspace %>
-            [<%= workspace.name %>]
-          <% else %>
-            <%= link_to(workspace.name, current_workspace_path(id: workspace.id), data: { turbo_method: :put }) %>
-          <% end %>
-          |
-        <% end %>
-        <%= link_to('new', new_workspace_path)%> |
-        <%= link_to('edit', edit_workspace_path(current_workspace)) %>
+        <ul class="menu menu-horizontal">
+          <li>
+            <%= link_to('ideas', ideas_path) %>
+          </li>
+          <li>
+            <details>
+              <summary>Workspaces</summary>
+              <ul class="w-max">
+                <% header_context[:workspaces].each do |workspace| %>
+                  <% if workspace == current_workspace %>
+                    <li>
+                      <a class="active"><%= workspace.name %></a>
+                    </li>
+                  <% else %>
+                    <li>
+                      <%= link_to(workspace.name, current_workspace_path(id: workspace.id), data: { turbo_method: :put }) %>
+                    </li>
+                  <% end %>
+                <% end %>
+                <hr />
+                <li><%= link_to('new workspace', new_workspace_path)%></li>
+                <li><%= link_to('edit current workspace', edit_workspace_path(current_workspace)) %></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
       </nav>
     </header>
 
@@ -49,7 +65,7 @@
       <% if signed_in? %>
         <nav>
 
-          <%= link_to('ideas', ideas_path) %> |
+
           <%= link_to('sign out', destroy_user_session_path, data: { turbo_method: :delete }) %>
 
           <div>
