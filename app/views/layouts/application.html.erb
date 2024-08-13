@@ -35,17 +35,17 @@
       </nav>
     </header>
 
-    <main style="margin-left:1em;">
+    <main class="p-6">
       <% if flash.alert %>
-        <p style="color:red">
+        <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
           <%= flash.alert %>
-        </p>
+        </div>
       <% end %>
 
       <%= yield %>
     </main>
 
-    <footer style="margin-top:2em;">
+    <footer>
       <% if signed_in? %>
         <nav>
 

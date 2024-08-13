@@ -10,8 +10,8 @@
         <% end %>
       </td>
       <td><%= idea.created_at.to_date %></td>
-      <td><%= link_to("edit", edit_idea_path(idea)) %></td>
-      <td><%= link_to("destroy", idea_path(idea), data: { turbo_method: :delete }) %></td>
+      <td><%= link_to("edit", edit_idea_path(idea), class: "btn btn-sm") %></td>
+      <td><%= link_to("destroy", idea_path(idea), class: "btn btn-sm", data: { turbo_method: :delete }) %></td>
     </tr>
   <% end %>
 </table>

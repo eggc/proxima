@@ -1,8 +1,8 @@
 <%= form_with(method: :get) do |f| %>
-  <%= f.select(:emote, Idea.emotes, selected: params[:emote], include_blank: true) %>
-  <%= f.submit "Search" %>
+  <%= f.select(:emote, Idea.emotes, { selected: params[:emote], include_blank: true }, { class: "select select-bordered" }) %>
+  <%= f.submit("Search", class: "btn btn-sm") %>
 <% end %>
 
 <%= render('shared/idea_table', ideas: @ideas, hidden_columns: [:projects])%>
 
-<%= link_to("new", ideas_path, data: { turbo_method: :post }) %>
+<%= link_to("new", ideas_path, data: { turbo_method: :post }, class: "btn") %>
