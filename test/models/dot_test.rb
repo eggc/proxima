@@ -1,6 +1,6 @@
 require "test_helper"
 
-class IdeaProjectTest < ActiveSupport::TestCase
+class DotTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

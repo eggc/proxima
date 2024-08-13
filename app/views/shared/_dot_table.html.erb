@@ -1,0 +1,17 @@
+<table class="table">
+  <% dots.each do |dot| %>
+    <tr>
+      <td><%= dot.display_order %></td>
+      <td><%= dot.emote_icon %></td>
+      <td width="400"><%= dot.content %></td>
+      <td>
+        <% hidden_columns.exclude?(:projects) && dot.projects.each do |project| %>
+         <div><%= project.title %></div>
+        <% end %>
+      </td>
+      <td><%= dot.updated_at.to_date %></td>
+      <td><%= link_to("edit", edit_dot_path(dot), class: "btn btn-sm") %></td>
+      <td><%= link_to("destroy", dot_path(dot), class: "btn btn-sm", data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete this item? This action cannot be undone.' }) %></td>
+    </tr>
+  <% end %>
+</table>

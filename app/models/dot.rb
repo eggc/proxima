@@ -1,13 +1,13 @@
-class Idea < ApplicationRecord
+class Dot < ApplicationRecord
   belongs_to :user
   belongs_to :workspace
 
-  has_many :idea_projects, dependent: :destroy
-  has_many :projects, through: :idea_projects
+  has_many :dot_projects, dependent: :destroy
+  has_many :projects, through: :dot_projects
 
   enum :emote, %w[blank hate love think star].to_h { [_1, _1] }, prefix: true
 
-  scope :filter_by_project, ->(project) { joins(:idea_projects).merge(IdeaProject.where(project_id: project.id)) }
+  scope :filter_by_project, ->(project) { joins(:dot_projects).merge(DotProject.where(project_id: project.id)) }
 
   def emote_icon
     {

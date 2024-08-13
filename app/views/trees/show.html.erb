@@ -3,10 +3,10 @@
     <li>
       <%= link_to(workspace.name, edit_workspace_path(workspace)) %>
       <ul>
-        <li><%= link_to('Ideas', ideas_path) %></li>
+        <li><%= link_to('Dots', dots_path) %></li>
         <ul>
-          <% workspace.ideas.each do |idea| %>
-            <li><%= link_to(idea.content.truncate(40), edit_idea_path(idea)) %></li>
+          <% workspace.dots.each do |dot| %>
+            <li><%= link_to(dot.content.truncate(40), edit_dot_path(dot)) %></li>
           <% end %>
         </ul>
         <!-- <li>characters</li>

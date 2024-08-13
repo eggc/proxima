@@ -1,0 +1,10 @@
+<%= form_with(method: :get) do |f| %>
+  <%= f.select(:emote, Dot.emotes, { selected: params[:emote], include_blank: true }, { class: "select select-bordered" }) %>
+  <%= f.submit("Search", class: "btn") %>
+<% end %>
+
+<div class="p-2">
+  <%= render('shared/dot_table', dots: @dots, hidden_columns: [:projects])%>
+</div>
+
+<%= link_to("new", dots_path, data: { turbo_method: :post }, class: "btn") %>

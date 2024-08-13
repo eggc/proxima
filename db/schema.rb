@@ -27,17 +27,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_06_084541) do
     t.index ["user_id"], name: "index_characters_on_user_id"
   end
 
-  create_table "idea_projects", force: :cascade do |t|
-    t.bigint "idea_id", null: false
+  create_table "dot_projects", force: :cascade do |t|
+    t.bigint "dot_id", null: false
     t.bigint "project_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["idea_id", "project_id"], name: "index_idea_projects_on_idea_id_and_project_id", unique: true
-    t.index ["idea_id"], name: "index_idea_projects_on_idea_id"
-    t.index ["project_id"], name: "index_idea_projects_on_project_id"
+    t.index ["dot_id", "project_id"], name: "index_dot_projects_on_dot_id_and_project_id", unique: true
+    t.index ["dot_id"], name: "index_dot_projects_on_dot_id"
+    t.index ["project_id"], name: "index_dot_projects_on_project_id"
   end
 
-  create_table "ideas", force: :cascade do |t|
+  create_table "dots", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "workspace_id", null: false
     t.string "content", default: "", null: false
@@ -45,8 +45,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_06_084541) do
     t.integer "display_order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_ideas_on_user_id"
-    t.index ["workspace_id"], name: "index_ideas_on_workspace_id"
+    t.index ["user_id"], name: "index_dots_on_user_id"
+    t.index ["workspace_id"], name: "index_dots_on_workspace_id"
   end
 
   create_table "project_characters", force: :cascade do |t|
@@ -108,10 +108,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_06_084541) do
   end
 
   add_foreign_key "characters", "users"
-  add_foreign_key "idea_projects", "ideas"
-  add_foreign_key "idea_projects", "projects"
-  add_foreign_key "ideas", "users"
-  add_foreign_key "ideas", "workspaces"
+  add_foreign_key "dot_projects", "dots"
+  add_foreign_key "dot_projects", "projects"
+  add_foreign_key "dots", "users"
+  add_foreign_key "dots", "workspaces"
   add_foreign_key "project_characters", "characters"
   add_foreign_key "project_characters", "projects"
   add_foreign_key "project_parts", "projects"

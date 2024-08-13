@@ -1,7 +1,7 @@
 <%= form_with(model: @project) do |f| %>
   <div>
     <div>theme: <%= f.text_field(:theme) %></div>
-    <div>related ideas: <%= f.select(:idea_ids, @selectable_ideas, selected: @selected_idea_ids, multiple: true) %></div>
+    <div>related dots: <%= f.select(:dot_ids, @selectable_dots, selected: @selected_dot_ids, multiple: true) %></div>
     <div>title: <%= f.text_field(:title) %></div>
     <div>media: <%= f.select(:media, Project.media) %></div>
     <div>description: <%= f.text_area(:description) %></div>

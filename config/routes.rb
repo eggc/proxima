@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :current_workspaces, only: :update
   resource :tree, only: :show
   resource :user, only: :show
-  resources :ideas, only: [:index, :create, :edit, :update, :destroy]
+  resources :dots, only: [:index, :create, :edit, :update, :destroy]
   resources :projects, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :project_parts, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :characters, only: [:index, :show, :new, :create, :edit, :update, :destroy]

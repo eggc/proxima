@@ -1,5 +1,5 @@
 class Workspace < ApplicationRecord
   belongs_to :user
-  has_many :ideas
+  has_many :dots
   validates :name, presence: true
 end
