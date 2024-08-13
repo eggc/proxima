@@ -4,7 +4,7 @@ class CreateDots < ActiveRecord::Migration[7.1]
       t.references :user, null: false, foreign_key: true
       t.references :workspace, null: false, foreign_key: true
       t.string :content, null: false, default: ''
-      t.string :emote, null: false, default: 'blank'
+      t.string :category, null: false, default: 'blank'
       t.integer :display_order
       t.timestamps
     end

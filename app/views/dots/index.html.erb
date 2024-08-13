@@ -1,5 +1,5 @@
 <%= form_with(method: :get) do |f| %>
-  <%= f.select(:emote, Dot.emotes, { selected: params[:emote], include_blank: true }, { class: "select select-bordered" }) %>
+  <%= f.select(:category, Dot.categories, { selected: params[:category], include_blank: true }, { class: "select select-bordered" }) %>
   <%= f.submit("Search", class: "btn") %>
 <% end %>
 

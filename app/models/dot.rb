@@ -5,7 +5,7 @@ class Dot < ApplicationRecord
   has_many :dot_projects, dependent: :destroy
   has_many :projects, through: :dot_projects
 
-  enum :emote, %w[blank hate love think star].to_h { [_1, _1] }, prefix: true
+  enum :category, %w[blank hate love think star].to_h { [_1, _1] }, prefix: true
 
   scope :filter_by_project, ->(project) { joins(:dot_projects).merge(DotProject.where(project_id: project.id)) }
 
@@ -15,6 +15,6 @@ class Dot < ApplicationRecord
       'love' => "\u{2764}\u{FE0F}",
       'think' => "\u{2753}",
       'star' => "\u{2B50}"
-    }[emote] || ''
+    }[category] || ''
   end
 end

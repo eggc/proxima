@@ -3,7 +3,7 @@ class DotsController < ApplicationController
 
   def index
     @dots = policy_scope(Dot).where(workspace: current_workspace).order(:display_order)
-    @dots.where!(emote: params[:emote]) if params[:emote].present?
+    @dots.where!(category: params[:category]) if params[:category].present?
   end
 
   def edit
@@ -36,6 +36,6 @@ class DotsController < ApplicationController
   private
 
   def dot_params
-    params.require(:dot).permit(:content, :emote, :display_order)
+    params.require(:dot).permit(:content, :category, :display_order)
   end
 end

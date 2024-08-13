@@ -41,7 +41,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_06_084541) do
     t.bigint "user_id", null: false
     t.bigint "workspace_id", null: false
     t.string "content", default: "", null: false
-    t.string "emote", default: "blank", null: false
+    t.string "category", default: "blank", null: false
     t.integer "display_order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
