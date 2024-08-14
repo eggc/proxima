@@ -32,7 +32,7 @@
             </li>
             <li>
               <details>
-                <summary>Workspaces</summary>
+                <summary><%= current_workspace.name %></summary>
                 <ul class="w-max">
                   <% header_context[:workspaces].each do |workspace| %>
                     <% if workspace == current_workspace %>

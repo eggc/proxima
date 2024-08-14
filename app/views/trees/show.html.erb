@@ -10,19 +10,11 @@
         <% end %>
       <% end %>
       <ul>
-        <li><%= link_to('Dots', dots_path) %></li>
-        <ul>
-          <% workspace.dots.each do |dot| %>
-            <li>
-              <%= link_to(dot.content.truncate(40), edit_dot_path(dot), class: "min-h-8") %>
-            </li>
-          <% end %>
-        </ul>
-        <!-- <li>characters</li>
-             <ul>
-             <li>1</li>
-             <li>2</li>
-             </ul> -->
+        <% workspace.dots.each do |dot| %>
+          <li>
+            <%= link_to(dot.content.truncate(40), edit_dot_path(dot), class: "min-h-8") %>
+          </li>
+        <% end %>
       </ul>
     </li>
   <% end %>
