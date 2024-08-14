@@ -5,7 +5,7 @@ class Dot < ApplicationRecord
   has_many :dot_projects, dependent: :destroy
   has_many :projects, through: :dot_projects
 
-  enum :category, %w[blank hate love think star].to_h { [_1, _1] }, prefix: true, default: :blank
+  enum :category, %w[blank hate love think star task].to_h { [_1, _1] }, prefix: true, default: :blank
 
   scope :filter_by_project, ->(project) { joins(:dot_projects).merge(DotProject.where(project_id: project.id)) }
 
