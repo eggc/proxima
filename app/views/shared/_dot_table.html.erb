@@ -2,7 +2,7 @@
   <% dots.each do |dot| %>
     <tr>
       <td><%= dot.display_order %></td>
-      <td><%= dot.emote_icon %></td>
+      <td><%= dot.category_icon %></td>
       <td width="400"><%= dot.content %></td>
       <td>
         <% hidden_columns.exclude?(:projects) && dot.projects.each do |project| %>

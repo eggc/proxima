@@ -56,6 +56,6 @@ class ProjectsController < ApplicationController
   def build_selectable_dots
     Dot.where(user: current_user)
       .order(:display_order)
-      .map { |dot| [dot.emote_icon + dot.content.truncate(30), dot.id] }
+      .map { |dot| [dot.category_icon + dot.content.truncate(30), dot.id] }
   end
 end

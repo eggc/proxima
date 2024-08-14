@@ -9,7 +9,7 @@ class Dot < ApplicationRecord
 
   scope :filter_by_project, ->(project) { joins(:dot_projects).merge(DotProject.where(project_id: project.id)) }
 
-  def emote_icon
+  def category_icon
     {
       'hate' => "\u{1F621}",
       'love' => "\u{2764}\u{FE0F}",
