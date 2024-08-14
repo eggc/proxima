@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_06_084541) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_14_124142) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -35,6 +35,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_06_084541) do
     t.index ["dot_id", "project_id"], name: "index_dot_projects_on_dot_id_and_project_id", unique: true
     t.index ["dot_id"], name: "index_dot_projects_on_dot_id"
     t.index ["project_id"], name: "index_dot_projects_on_project_id"
+  end
+
+  create_table "dot_tasks", force: :cascade do |t|
+    t.bigint "dot_id", null: false
+    t.boolean "is_completed", default: false, null: false
+    t.datetime "completed_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dot_id"], name: "index_dot_tasks_on_dot_id"
   end
 
   create_table "dots", force: :cascade do |t|
@@ -110,6 +119,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_06_084541) do
   add_foreign_key "characters", "users"
   add_foreign_key "dot_projects", "dots"
   add_foreign_key "dot_projects", "projects"
+  add_foreign_key "dot_tasks", "dots"
   add_foreign_key "dots", "users"
   add_foreign_key "dots", "workspaces"
   add_foreign_key "project_characters", "characters"

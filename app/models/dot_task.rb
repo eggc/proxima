@@ -1,0 +1,2 @@
+class DotTask < ApplicationRecord
+end
