@@ -5,7 +5,7 @@
   <% end %>
 </div>
 
-<div class="grid grid-cols-3 gap-4">
+<div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
   <div class="card bg-base-100 w-96 shadow-xl">
     <div class="card-body justify-between">
       <h2 class="card-title">New Dot</h2>
@@ -18,7 +18,14 @@
   <% @dots.each do |dot| %>
     <div class="card bg-base-100 w-96 shadow-xl">
       <div class="card-body">
-        <h2 class="card-title"><%= dot.display_order %></h2>
+        <div class="flex items-center justify-between">
+          <h2 class="card-title">
+            <%= dot.display_order %>
+          </h2>
+          <div class="badge badge-outline">
+            <%= dot.category %>
+          </div>
+        </div>
         <p><%= dot.content %></p>
         <div class="flex justify-between items-end mt-4">
           <small class="text-slate-400"><%= dot.updated_at %></small>
