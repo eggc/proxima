@@ -4,6 +4,7 @@ class DotsController < ApplicationController
   def index
     @dots = policy_scope(Dot).where(workspace: current_workspace).order(display_order: :desc)
     @dots.where!(category: params[:category]) if params[:category].present?
+    @dot_tasks = find_dot_tasks(@dots)
   end
 
   def edit
@@ -43,5 +44,17 @@ class DotsController < ApplicationController
     @dot = Dot.new(user:, display_order: max_order + 1, workspace:)
     @dot.category = category if category.present?
     @dot
+  end
+
+  def find_dot_tasks(dots)
+    max_ids =
+      DotTask
+        .joins(:dot)
+        .merge(dots.reorder(nil))
+        .group(:dot_id)
+        .maximum(:id)
+        .values
+
+    @dot_tasks = DotTask.where(id: max_ids).index_by(&:dot_id)
   end
 end

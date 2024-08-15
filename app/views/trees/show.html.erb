@@ -12,24 +12,7 @@
       <ul>
         <% workspace.dots.each do |dot| %>
           <li>
-            <% if dot.category_task? %>
-              <div class="flex items-start">
-                <% if dot.dot_task.is_completed %>
-                  <%= link_to(dot_task_path(dot.dot_task), data: { turbo_method: :put }) do %>
-                    <input type="checkbox" checked="checked" class="checkbox" />
-                  <% end %>
-                  <%= link_to(dot.content.truncate(40), edit_dot_path(dot), class: "min-h-8") %>
-                  <small><%= I18n.l(dot.dot_task.completed_at, format: :long) %></small>
-                <% else %>
-                  <%= link_to(dot_task_path(dot.dot_task), data: { turbo_method: :put }) do %>
-                    <input type="checkbox" class="checkbox" />
-                  <% end %>
-                  <%= link_to(dot.content.truncate(40), edit_dot_path(dot), class: "min-h-8") %>
-                <% end %>
-              </div>
-            <% else %>
-              <%= link_to(dot.content.truncate(40), edit_dot_path(dot), class: "min-h-8") %>
-            <% end %>
+            <%= link_to(dot.content.truncate(40), edit_dot_path(dot), class: "min-h-8") %>
           </li>
         <% end %>
       </ul>

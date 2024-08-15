@@ -2,7 +2,7 @@ class Dot < ApplicationRecord
   belongs_to :user
   belongs_to :workspace
 
-  has_one :dot_task, dependent: :destroy
+  has_many :dot_tasks, dependent: :destroy
 
   has_many :dot_projects, dependent: :destroy
   has_many :projects, through: :dot_projects
