@@ -13,3 +13,11 @@ mom001:
   user_id: 4
   name: 家事
   display_order: 1
+alice_workspace001:
+  id: 4
+  user_id: 1
+  name: my workspace
+bob_workspace001:
+  id: 5
+  user_id: 2
+  name: my workspace
