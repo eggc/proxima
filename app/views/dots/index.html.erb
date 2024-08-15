@@ -2,12 +2,12 @@
   <div class="card bg-base-100 w-96">
     <div class="card-body justify-between">
       <div class="card-actions">
-        <%= link_to("Create", dots_path(category: params[:category]), data: { turbo_method: :post }, class: "btn btn-primary") %>
+        <%= link_to("New", dots_path(category: params[:category]), data: { turbo_method: :post }, class: "btn btn-primary") %>
 
         <%= form_with(method: :get) do |f| %>
           <div class="join">
             <%= f.select(:category, Dot.categories, { selected: params[:category], include_blank: true }, { class: "select select-bordered join-item" }) %>
-            <%= f.submit("Search", class: "btn join-item") %>
+            <%= f.submit("🔍", class: "btn join-item") %>
           </div>
         <% end %>
       </div>
@@ -41,10 +41,10 @@
           <!-- <small class="text-slate-400"><%= dot.updated_at %></small> -->
           <div class="card-actions">
             <% if dot.category_task? %>
-              <%= link_to("Done", dot_tasks_path(dot_id: dot.id), class: "btn btn-sm", data: { turbo_method: :post }) %>
+              <%= link_to("Done", dot_tasks_path(dot_id: dot.id), class: "btn btn-xs", data: { turbo_method: :post }) %>
             <% end %>
-            <%= link_to("Edit", edit_dot_path(dot), class: "btn btn-sm") %>
-            <%= turbo_destroy_link_to("Destroy", dot_path(dot), confirm: dot.content.present?) %>
+            <%= link_to("Edit", edit_dot_path(dot), class: "btn btn-xs") %>
+            <%= turbo_destroy_link_to("Delete", dot_path(dot), confirm: dot.content.present?, class: "btn btn-xs") %>
           </div>
         </div>
       </div>
