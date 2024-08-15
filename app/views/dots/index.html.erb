@@ -16,12 +16,14 @@
   </div>
 
   <% @dots.each do |dot| %>
-    <div class="card bg-base-100 w-96">
+    <div class="card bg-base-100 w-96" id="<%= dot.id %>">
       <div class="card-body">
         <div class="flex items-center justify-between">
           <h2 class="card-title">
-            <%= dot.display_order %>.
-            <%= dot.content.truncate(15) %>
+            <a href="#<%= dot.id %>">
+              <%= dot.display_order %>.
+              <%= dot.content.truncate(15) %>
+            </a>
           </h2>
           <div class="badge badge-outline">
             <%= dot.category %>
