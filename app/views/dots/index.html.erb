@@ -1,45 +1,44 @@
-<div class="grid grid-cols-1 lg:grid-cols-3">
-  <div class="card bg-base-100 w-96">
-    <div class="card-body justify-between">
-      <div class="card-actions">
-        <%= link_to("New", dots_path(category: params[:category]), data: { turbo_method: :post }, class: "btn btn-primary") %>
+<div class="flex space-x-4 px-8">
+  <%= link_to("New", dots_path(category: params[:category]), data: { turbo_method: :post }, class: "btn btn-primary") %>
 
-        <%= form_with(method: :get) do |f| %>
-          <div class="join">
-            <%= f.select(:category, Dot.categories, { selected: params[:category], include_blank: true }, { class: "select select-bordered join-item" }) %>
-            <%= f.submit("🔍", class: "btn join-item") %>
-          </div>
-        <% end %>
-      </div>
-
+  <%= form_with(method: :get) do |f| %>
+    <div class="join">
+      <%= f.select(:category, Dot.categories, { selected: params[:category], include_blank: true }, { class: "select select-bordered join-item" }) %>
+      <%= f.submit("🔍", class: "btn join-item") %>
     </div>
-  </div>
+  <% end %>
+</div>
 
+<div class="grid grid-cols-1 lg:grid-cols-3">
   <% @dots.each do |dot| %>
     <div class="card bg-base-100 w-96" id="<%= dot.id %>">
       <div class="card-body">
-        <div class="flex items-center justify-between">
+        <div class="flex items-center justify-between border-b-2 border-primary">
           <h2 class="card-title">
             <a href="#<%= dot.id %>">
-              <%= dot.display_order %>.
-              <%= dot.content.truncate(15) %>
+              <div class="badge badge-outline">
+                <%= dot.category %>
+              </div>
+              <small>
+                <%= dot.content.truncate(14) %>
+              </small>
             </a>
           </h2>
-          <div class="badge badge-outline">
-            <%= dot.category %>
+          <div>
+            <% if @dot_tasks[dot.id] %>
+              <small>
+                <%= I18n.l(@dot_tasks[dot.id].created_at, format: :very_short) %>
+              </small>
+            <% end %>
           </div>
+
         </div>
         <div>
           <div>
             <%= dot.content if dot.content.length > 15 %>
-            <% if dot.category_task? %>
-              <span>
-                <%= I18n.l(@dot_tasks[dot.id].created_at, format: :short) %>
-              </span>
-            <% end %>
           </div>
         </div>
-        <div class="flex justify-between items-end mt-4 h-full">
+        <div class="flex justify-between items-end h-full">
           <!-- <small class="text-slate-400"><%= dot.updated_at %></small> -->
           <div class="card-actions">
             <% if dot.category_task? %>
