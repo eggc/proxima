@@ -53,7 +53,7 @@
             </li>
             <li>
               <details>
-                <summary>👤 <%= current_user.email %></summary>
+                <summary>User</summary>
                 <ul class="w-max">
                   <li><%= link_to('details', user_path) %></li>
                   <li><%= link_to('sign out', destroy_user_session_path, data: { turbo_method: :delete }) %></li>
@@ -64,13 +64,12 @@
       </nav>
     </header>
 
-    <main class="p-4">
+    <main>
       <% if flash.alert %>
         <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
           <%= flash.alert %>
         </div>
       <% end %>
-
       <%= yield %>
     </main>
 
