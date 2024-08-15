@@ -15,7 +15,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
 
-  <body class="max-w-screen-xl">
+  <body class="max-w-screen min-h-screen relative">
     <header class="navbar">
       <%= link_to(root_path) do %>
         <h1>Proxima</h1>
@@ -74,7 +74,7 @@
       <%= yield %>
     </main>
 
-    <footer>
+    <footer class="footer bg-base-200 absolute bottom-0 left-0">
       <% if signed_in? %>
         <nav>
           <div>
