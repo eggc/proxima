@@ -40,38 +40,3 @@ charlie_dot006:
   content: https://x.com/eggc0/status/1820478057645527415 これいいね。
   display_order: 5
   category: 'love'
-mom001:
-  id: 7
-  user_id: 4
-  workspace_id: 3
-  content: ゴミ捨て
-  display_order: 1
-  category: 'task'
-mom002:
-  id: 8
-  user_id: 4
-  workspace_id: 3
-  content: トイレ掃除
-  display_order: 2
-  category: 'task'
-mom003:
-  id: 9
-  user_id: 4
-  workspace_id: 3
-  content: 玄関掃除
-  display_order: 3
-  category: 'task'
-mom004:
-  id: 10
-  user_id: 4
-  workspace_id: 3
-  content: 寝室掃除
-  display_order: 4
-  category: 'task'
-mom005:
-  id: 11
-  user_id: 4
-  workspace_id: 3
-  content: 買い物
-  display_order: 5
-  category: 'task'

@@ -11,7 +11,7 @@ charlie_workspace002:
 mom001:
   id: 3
   user_id: 4
-  name: 家事
+  name: demo workspace
   display_order: 1
 alice_workspace001:
   id: 4
