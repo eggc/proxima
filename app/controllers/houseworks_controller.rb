@@ -5,17 +5,22 @@ class HouseworksController < ApplicationController
     @houseworks = policy_scope(Housework).order(display_order: :desc)
   end
 
+  def new
+    max_order = Housework.where(user: current_user).maximum(:display_order) || 0
+    @housework = Housework.new(user: current_user, display_order: max_order + 1)
+    authorize(@housework)
+  end
+
   def edit
     @housework = Housework.find(params[:id])
     authorize(@housework)
   end
 
   def create
-    max_order = Housework.where(user: current_user).maximum(:display_order) || 0
-    @housework = Housework.new(user: current_user, display_order: max_order + 1)
+    @housework = Housework.new(user: current_user)
     authorize(@housework)
-    @housework.save!
-    redirect_back_or_to(houseworks_path)
+    @housework.update!(housework_params)
+    redirect_to(houseworks_path)
   end
 
   def update

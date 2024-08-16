@@ -27,18 +27,6 @@
       <%= yield %>
     </main>
 
-    <footer class="footer bg-base-200 absolute bottom-0 left-0">
-      <% if signed_in? %>
-        <nav>
-          <div>
-            廃止検討中
-            <%= link_to('root', root_path) %> |
-            <%= link_to('projects', projects_path) %> |
-            <%= link_to('project_parts', project_parts_path) %> |
-            <%= link_to('characters', characters_path) %> |
-          </div>
-        </nav>
-        <% end %>
-      </footer>
+    <%= render(BottomNavigationComponent.new) %>
   </body>
 </html>

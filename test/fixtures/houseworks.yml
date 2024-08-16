@@ -7,19 +7,19 @@ mom002:
   id: 2
   user_id: 4
   content: トイレ掃除
-  display_order: 2
+  display_order: 1
 mom003:
   id: 3
   user_id: 4
   content: 玄関掃除
-  display_order: 3
+  display_order: 1
 mom004:
   id: 4
   user_id: 4
   content: 寝室掃除
-  display_order: 4
+  display_order: 1
 mom005:
   id: 5
   user_id: 4
   content: 買い物
-  display_order: 5
+  display_order: 1

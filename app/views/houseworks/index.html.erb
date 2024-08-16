@@ -1,7 +1,3 @@
-<div class="flex space-x-4 px-8">
-  <%= link_to("New", houseworks_path(category: params[:category]), data: { turbo_method: :post }, class: "btn btn-primary") %>
-</div>
-
 <div class="grid grid-cols-1 lg:grid-cols-3">
   <% @houseworks.each do |housework| %>
     <div class="card bg-base-100 w-96" id="<%= housework.id %>">
