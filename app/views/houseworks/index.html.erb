@@ -1,0 +1,38 @@
+<div class="flex space-x-4 px-8">
+  <%= link_to("New", houseworks_path(category: params[:category]), data: { turbo_method: :post }, class: "btn btn-primary") %>
+</div>
+
+<div class="grid grid-cols-1 lg:grid-cols-3">
+  <% @houseworks.each do |housework| %>
+    <div class="card bg-base-100 w-96" id="<%= housework.id %>">
+      <div class="card-body">
+        <div class="flex items-center justify-between">
+          <h2 class="card-title">
+            <a href="#<%= housework.id %>">
+              <small>
+                <%= housework.content.truncate(14).presence || '(New Item)' %>
+              </small>
+            </a>
+          </h2>
+          <div>
+            <small>
+              <%= I18n.l(housework.created_at, format: :very_short) %>
+            </small>
+          </div>
+        </div>
+        <div>
+          <div>
+            <%= housework.content if housework.content.length > 14 %>
+          </div>
+        </div>
+        <div class="flex justify-between items-end h-full">
+          <div class="card-actions">
+            <%= link_to("Done", "#", class: "btn btn-xs", data: { turbo_method: :post }) %>
+            <%= link_to("Edit", edit_housework_path(housework), class: "btn btn-xs") %>
+            <%= turbo_destroy_link_to("Delete", housework_path(housework), confirm: housework.content.present?, class: "btn btn-xs") %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

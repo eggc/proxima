@@ -1,0 +1,17 @@
+<%= form_with(model: @housework) do |f| %>
+  <div>
+    <label class="form-control">
+      <div class="label"><span class="label-text">Content</span></div>
+      <%= f.text_area(:content, class: "textarea textarea-bordered") %>
+    </label>
+
+    <label class="form-control">
+      <div class="label"><span class="label-text">Number</span></div>
+      <%= f.number_field(:display_order, class: "input input-bordered") %>
+    </label>
+
+    <div class="pt-4">
+      <%= f.submit(class: "btn btn-wide btn-primary") %>
+    </div>
+  </div>
+<% end %>
