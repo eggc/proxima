@@ -1,0 +1,15 @@
+<header class="navbar">
+  <%= link_to(root_path) do %>
+    <h1>Proxima</h1>
+  <% end %>
+
+  <nav>
+    <ul class="menu menu-horizontal z-[1]">
+      <% menu_items.each do |menu_item| %>
+        <li>
+          <%= link_to(menu_item.name, menu_item.path) %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+</header>

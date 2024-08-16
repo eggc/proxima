@@ -16,53 +16,7 @@
   </head>
 
   <body class="max-w-screen min-h-screen relative">
-    <header class="navbar">
-      <%= link_to(root_path) do %>
-        <h1>Proxima</h1>
-      <% end %>
-
-      <nav>
-        <ul class="menu menu-horizontal z-[1]">
-          <% if signed_in? %>
-            <li>
-              <%= link_to('Tree', tree_path) %>
-            </li>
-            <li>
-              <%= link_to('Dots', dots_path) %>
-            </li>
-            <li>
-              <details>
-                <summary><%= current_workspace.name %></summary>
-                <ul class="w-max">
-                  <% header_context[:workspaces].each do |workspace| %>
-                    <% if workspace == current_workspace %>
-                      <li>
-                        <a class="active"><%= workspace.name %></a>
-                      </li>
-                    <% else %>
-                      <li>
-                        <%= link_to(workspace.name, current_workspace_path(id: workspace.id), data: { turbo_method: :put }) %>
-                      </li>
-                    <% end %>
-                  <% end %>
-                  <hr />
-                  <li><%= link_to('new workspace', new_workspace_path)%></li>
-                  <li><%= link_to('edit current workspace', edit_workspace_path(current_workspace)) %></li>
-                </ul>
-              </details>
-            </li>
-            <li>
-              <details>
-                <summary>User</summary>
-                <ul class="w-max">
-                  <li><%= link_to('details', user_path) %></li>
-                  <li><%= link_to('sign out', destroy_user_session_path, data: { turbo_method: :delete }) %></li>
-                </ul>
-            </li>
-          <% end %>
-        </ul>
-      </nav>
-    </header>
+    <%= render(HeaderComponent.new) %>
 
     <main>
       <% if flash.alert %>

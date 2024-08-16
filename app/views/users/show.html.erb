@@ -23,4 +23,8 @@
       <% end %>
     </div>
   </div>
+
+  <div>
+    <%= link_to('sign out', destroy_user_session_path, data: { turbo_method: :delete }, class: "btn") %>
+  </div>
 </div>

@@ -6,18 +6,12 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, with: :rescue_not_authorized_error
   rescue_from ActiveRecord::RecordInvalid, with: :rescue_record_invalid
 
-  helper_method :current_workspace, :header_context
+  helper_method :current_workspace
 
   def current_workspace
     @current_workspace ||=
       Workspace.where(user: current_user).find_by(id: cookies[:current_workspace_id]) ||
       Workspace.where(user: current_user).order(:display_order).first
-  end
-
-  def header_context
-    @header_context = {
-      workspaces: Workspace.where(user: current_user).order(:display_order)
-    }
   end
 
   private
