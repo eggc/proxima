@@ -1,4 +1,4 @@
 ja:
-  time:
+  date:
     formats:
-      very_short: "%-m月%-d日"
+      short: "%-m月%-d日"

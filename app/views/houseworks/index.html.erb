@@ -11,8 +11,8 @@
             </a>
           </h2>
           <div>
-            <small>
-              <%= I18n.l(housework.created_at, format: :short) %>
+            <small class="text-neutral-400">
+              最後にやった日：<%= I18n.l(housework.housework_logs.maximum(:worked_at), format: :short) rescue ''%>
             </small>
           </div>
         </div>
@@ -23,9 +23,13 @@
         </div>
         <div class="flex justify-between items-end h-full">
           <div class="card-actions">
-            <%= link_to("Done", "#", class: "btn btn-xs", data: { turbo_method: :post }) %>
-            <%= link_to("Edit", edit_housework_path(housework), class: "btn btn-xs") %>
-            <%= turbo_destroy_link_to("Delete", housework_path(housework), confirm: housework.content.present?, class: "btn btn-xs") %>
+            <div class="join">
+              <%= date_field(:housework_log, :worked_at, value: Date.current, class: "input-xs join-item") %>
+              <%= link_to("完了", "#", class: "btn btn-outline btn-xs join-item", data: { turbo_method: :post }) %>
+            </div>
+
+            <%= link_to("編集", edit_housework_path(housework), class: "btn btn-outline btn-xs") %>
+            <%= turbo_destroy_link_to("削除", housework_path(housework), confirm: housework.content.present?, class: "btn btn-outline btn-xs") %>
           </div>
         </div>
       </div>

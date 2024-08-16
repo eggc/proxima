@@ -10,6 +10,24 @@
       <%= f.number_field(:display_order, class: "input input-bordered") %>
     </label>
 
+    <div>
+      <% @housework.housework_logs.order(worked_at: :desc).each do |housework_log| %>
+        <%= fields_for(housework_log) do |ff| %>
+          <div class="flex space-x-4">
+            <div>
+              <%= ff.hidden_field(:id) %>
+              <%= ff.label(:worked_at, class: "block label-text") %>
+              <%= ff.date_field(:worked_at, class: "input input-bordered", disabled: true) %>
+            </div>
+            <div>
+              <%= ff.label(:memo, class: "block label-text") %>
+              <%= ff.text_field(:memo, class: "input input-bordered", disabled: true) %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
     <div class="pt-4">
       <%= f.submit(class: "btn btn-wide btn-primary") %>
     </div>
