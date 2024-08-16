@@ -21,16 +21,17 @@
             <%= housework.content if housework.content.length > 14 %>
           </div>
         </div>
-        <div class="flex justify-between items-end h-full">
-          <div class="card-actions">
-            <div class="join">
-              <%= date_field(:housework_log, :worked_at, value: Date.current, class: "input-xs join-item") %>
-              <%= link_to("完了", "#", class: "btn btn-outline btn-xs join-item", data: { turbo_method: :post }) %>
-            </div>
 
+        <div class="card-actions">
+          <%= form_with(model: housework.housework_logs.build(worked_at: Date.current)) do |f| %>
+            <%= f.hidden_field(:housework_id) %>
+            <div class="join">
+              <%= f.date_field(:worked_at, class: "input-xs join-item") %>
+              <%= f.submit("完了", class: "btn btn-outline btn-xs join-item") %>
+            </div>
             <%= link_to("編集", edit_housework_path(housework), class: "btn btn-outline btn-xs") %>
             <%= turbo_destroy_link_to("削除", housework_path(housework), confirm: housework.content.present?, class: "btn btn-outline btn-xs") %>
-          </div>
+          <% end %>
         </div>
       </div>
     </div>
