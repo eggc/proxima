@@ -1,0 +1,20 @@
+mom001:
+  id: 1
+  housework_id: 1
+  memo: ゴミ捨てやり切った
+  worked_at: 2024-08-10
+mom002:
+  id: 2
+  housework_id: 1
+  memo: ゴミ捨て忘れない
+  worked_at: 2024-08-17
+mom003:
+  id: 3
+  housework_id: 2
+  memo: トイレ掃除完了！
+  worked_at: 2024-08-01
+mom004:
+  id: 4
+  housework_id: 3
+  memo: だるいけど終わらせた
+  worked_at: 2024-06-14

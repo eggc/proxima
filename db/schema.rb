@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_16_135540) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_16_155442) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,6 +56,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_16_135540) do
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_dots_on_user_id"
     t.index ["workspace_id"], name: "index_dots_on_workspace_id"
+  end
+
+  create_table "housework_logs", force: :cascade do |t|
+    t.bigint "housework_id", null: false
+    t.string "memo", default: "", null: false
+    t.date "worked_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["housework_id"], name: "index_housework_logs_on_housework_id"
   end
 
   create_table "houseworks", force: :cascade do |t|
@@ -140,6 +149,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_16_135540) do
   add_foreign_key "dot_tasks", "dots"
   add_foreign_key "dots", "users"
   add_foreign_key "dots", "workspaces"
+  add_foreign_key "housework_logs", "houseworks"
   add_foreign_key "houseworks", "users"
   add_foreign_key "project_characters", "characters"
   add_foreign_key "project_characters", "projects"
