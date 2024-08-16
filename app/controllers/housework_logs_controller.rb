@@ -1,8 +1,14 @@
 class HouseworkLogsController < ApplicationController
   def create
-    @dot_task = HouseworkLog.new(housework_log_params)
-    @dot_task.save!
+    @housework_log = HouseworkLog.new(housework_log_params)
+    @housework_log.save!
     redirect_to(houseworks_path, status: :see_other)
+  end
+
+  def destroy
+    @housework_log = HouseworkLog.find(params[:id])
+    @housework_log.destroy!
+    redirect_back_or_to(houseworks_path, status: :see_other)
   end
 
   private

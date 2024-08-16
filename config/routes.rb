@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :dot_tasks, only: [:create]
 
   resources :houseworks, only: [:index, :new, :create, :edit, :update, :destroy]
-  resources :housework_logs, only: [:create]
+  resources :housework_logs, only: [:create, :destroy]
 
   resources :projects, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :project_parts, only: [:index, :show, :new, :create, :edit, :update, :destroy]

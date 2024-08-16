@@ -13,7 +13,7 @@
     <div>
       <% @housework.housework_logs.order(worked_at: :desc).each do |housework_log| %>
         <%= fields_for(housework_log) do |ff| %>
-          <div class="flex space-x-4">
+          <div class="flex space-x-4 items-end">
             <div>
               <%= ff.hidden_field(:id) %>
               <%= ff.label(:worked_at, class: "block label-text") %>
@@ -22,6 +22,9 @@
             <div>
               <%= ff.label(:memo, class: "block label-text") %>
               <%= ff.text_field(:memo, class: "input input-bordered", disabled: true) %>
+            </div>
+            <div>
+              <%= turbo_destroy_link_to("削除", housework_log_path(housework_log), confirm: false, class: "btn") %>
             </div>
           </div>
         <% end %>
