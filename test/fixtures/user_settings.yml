@@ -1,0 +1,20 @@
+alice:
+  id: 1
+  user_id: 1
+  housework_tool_enabled: true
+  creative_tool_enabled: true
+bob:
+  id: 2
+  user_id: 2
+  housework_tool_enabled: true
+  creative_tool_enabled: true
+charlie:
+  id: 3
+  user_id: 3
+  housework_tool_enabled: false
+  creative_tool_enabled: true
+mom:
+  id: 4
+  user_id: 4
+  housework_tool_enabled: true
+  creative_tool_enabled: false
