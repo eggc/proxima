@@ -2,6 +2,8 @@ class Housework < ApplicationRecord
   belongs_to :user
   has_many :housework_logs, dependent: :destroy
 
+  validates :content, presence: true, length: { maximum: 1024 }
+
   def days_since_last_done
     return unless last_worked_at
 

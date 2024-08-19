@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :user_setting
+
+  validates :email, presence: true, length: { maximum: 256 }
 end
