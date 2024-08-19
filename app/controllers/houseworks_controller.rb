@@ -2,7 +2,7 @@ class HouseworksController < ApplicationController
   after_action :verify_pundit_authorization
 
   def index
-    @houseworks = policy_scope(Housework).order(display_order: :desc)
+    @houseworks = policy_scope(Housework).order(:display_order)
   end
 
   def new

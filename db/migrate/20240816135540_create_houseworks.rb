@@ -6,6 +6,8 @@ class CreateHouseworks < ActiveRecord::Migration[7.1]
       t.date :last_worked_at
       t.integer :display_order
       t.timestamps
+
+      t.index [:user_id, :display_order]
     end
   end
 end
