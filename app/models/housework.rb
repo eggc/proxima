@@ -3,11 +3,9 @@ class Housework < ApplicationRecord
   has_many :housework_logs, dependent: :destroy
 
   def days_since_last_done
-    if last_worked_at
-      (Date.current - last_worked_at).to_i
-    else
-      0
-    end
+    return unless last_worked_at
+
+    (Date.current - last_worked_at).to_i
   end
 
   def update_housework_logs!(records)
@@ -15,5 +13,11 @@ class Housework < ApplicationRecord
     raise ArgumentError if records.any? { _1['housework_id'].to_i != id }
 
     HouseworkLog.upsert_all(records)
+  end
+
+  def save_last_worked_at!
+    return unless housework_logs.any?
+
+    update!(last_worked_at: housework_logs.maximum(:worked_at))
   end
 end

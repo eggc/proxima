@@ -30,6 +30,7 @@ class HouseworksController < ApplicationController
     ApplicationRecord.transaction do
       @housework.update!(housework_params)
       @housework.update_housework_logs!(housework_logs_params)
+      @housework.save_last_worked_at!
     end
 
     redirect_to(houseworks_path)
@@ -49,7 +50,7 @@ class HouseworksController < ApplicationController
   end
 
   def housework_logs_params
-    permitted_params[:housework_logs].values
+    permitted_params[:housework_logs]&.values || []
   end
 
   def permitted_params

@@ -12,7 +12,7 @@
           </h2>
           <div>
             <small class="text-neutral-600">
-              <%= t('housework_pages.days_since_last_done', count: housework.days_since_last_done) %>
+              <%= t('housework_pages.days_since_last_done', count: housework.days_since_last_done || "-") %>
             </small>
           </div>
         </div>
