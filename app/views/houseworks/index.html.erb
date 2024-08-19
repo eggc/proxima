@@ -1,8 +1,8 @@
 <div class="grid grid-cols-1 lg:grid-cols-3">
   <% @houseworks.each do |housework| %>
-    <div class="card bg-base-100 w-96" id="<%= housework.id %>">
+    <div class="card bg-base-100" id="<%= housework.id %>">
       <div class="card-body">
-        <div class="flex items-center justify-between">
+        <div class="flex">
           <h2 class="card-title">
             <a href="#<%= housework.id %>">
               <small>
@@ -10,17 +10,13 @@
               </small>
             </a>
           </h2>
-          <div>
-            <small class="text-neutral-600">
-              <%= t('housework_pages.days_since_last_done', count: housework.days_since_last_done || "-") %>
-            </small>
-          </div>
         </div>
         <div>
-          <div>
-            <%= housework.content if housework.content.length > 14 %>
-          </div>
+          <small>
+            <%= t('housework_pages.days_since_last_done', count: housework.days_since_last_done || "-") %>
+          </small>
         </div>
+        <div><%= housework.content if housework.content.length > 14 %></div>
 
         <div class="card-actions">
           <%= form_with(model: housework.housework_logs.build(worked_at: Date.current)) do |f| %>
