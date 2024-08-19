@@ -9,4 +9,11 @@ class Housework < ApplicationRecord
       0
     end
   end
+
+  def update_housework_logs!(records)
+    return if records.blank?
+    raise ArgumentError if records.any? { _1['housework_id'].to_i != id }
+
+    HouseworkLog.upsert_all(records)
+  end
 end

@@ -12,16 +12,17 @@
 
     <div>
       <% @housework.housework_logs.order(worked_at: :desc).each do |housework_log| %>
-        <%= fields_for(housework_log) do |ff| %>
+        <%= f.fields_for('housework_logs[]', housework_log) do |ff| %>
           <div class="flex space-x-4 items-end">
             <div>
               <%= ff.hidden_field(:id) %>
+              <%= ff.hidden_field(:housework_id) %>
               <%= ff.label(:worked_at, class: "block label-text") %>
-              <%= ff.date_field(:worked_at, class: "input input-bordered", disabled: true) %>
+              <%= ff.date_field(:worked_at, class: "input input-bordered") %>
             </div>
             <div>
               <%= ff.label(:memo, class: "block label-text") %>
-              <%= ff.text_field(:memo, class: "input input-bordered", disabled: true) %>
+              <%= ff.text_field(:memo, class: "input input-bordered") %>
             </div>
             <div>
               <%= turbo_destroy_link_to(path: housework_log_path(housework_log), confirm: false, class: "btn") %>

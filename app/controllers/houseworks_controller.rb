@@ -26,7 +26,12 @@ class HouseworksController < ApplicationController
   def update
     @housework = Housework.find(params[:id])
     authorize(@housework)
-    @housework.update!(housework_params)
+
+    ApplicationRecord.transaction do
+      @housework.update!(housework_params)
+      @housework.update_housework_logs!(housework_logs_params)
+    end
+
     redirect_to(houseworks_path)
   end
 
@@ -40,6 +45,14 @@ class HouseworksController < ApplicationController
   private
 
   def housework_params
-    params.require(:housework).permit(:content, :display_order)
+    permitted_params.slice(:content, :display_order)
+  end
+
+  def housework_logs_params
+    permitted_params[:housework_logs].values
+  end
+
+  def permitted_params
+    params.require(:housework).permit(:content, :display_order, housework_logs: %i[id housework_id worked_at memo])
   end
 end
