@@ -26,3 +26,8 @@ mom005:
   user_id: 4
   content: 買い物
   display_order: 1
+mom006:
+  id: 6
+  user_id: 4
+  content: 離れ倉庫の整理整頓と換気とガスメーターのチェック
+  display_order: 1

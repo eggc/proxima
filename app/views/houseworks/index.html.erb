@@ -1,12 +1,12 @@
 <div class="grid grid-cols-1 lg:grid-cols-3">
   <% @houseworks.each do |housework| %>
     <div class="card bg-base-100" id="<%= housework.id %>">
-      <div class="card-body">
+      <div class="card-body p-4">
         <div class="flex">
           <h2 class="card-title">
             <a href="#<%= housework.id %>">
               <small>
-                <%= housework.content.truncate(14) %>
+                <%= housework.content.truncate(18) %>
               </small>
             </a>
           </h2>
@@ -16,17 +16,16 @@
             <%= t('housework_pages.days_since_last_done', count: housework.days_since_last_done || "-") %>
           </small>
         </div>
-        <div><%= housework.content if housework.content.length > 14 %></div>
 
         <div class="card-actions">
           <%= form_with(model: housework.housework_logs.build(worked_at: Date.current)) do |f| %>
             <%= f.hidden_field(:housework_id) %>
             <div class="join">
               <%= f.date_field(:worked_at, class: "input-xs join-item") %>
-              <%= f.submit(t('button.done'), class: "btn btn-outline btn-xs join-item") %>
+              <%= f.submit(t('button.done'), class: "btn btn-outline btn-xs join-item w-14") %>
             </div>
-            <%= link_to(t('button.edit'), edit_housework_path(housework), class: "btn btn-outline btn-xs") %>
-            <%= turbo_destroy_link_to(path: housework_path(housework), confirm: housework.content.present?, class: "btn btn-outline btn-xs") %>
+            <%= link_to(t('button.edit'), edit_housework_path(housework), class: "btn btn-outline btn-xs w-14") %>
+            <%= turbo_destroy_link_to(path: housework_path(housework), confirm: housework.content.present?, class: "btn btn-outline btn-xs w-14") %>
           <% end %>
         </div>
       </div>
