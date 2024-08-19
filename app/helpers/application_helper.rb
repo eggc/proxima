@@ -6,7 +6,7 @@ module ApplicationHelper
       class:,
       data: {
         turbo_method: :delete,
-        turbo_confirm: confirm ? 'Are you sure you want to delete this item? This action cannot be undone.' : nil
+        turbo_confirm: confirm ? I18n.t('confirm.delete') : nil
       }
     )
   end

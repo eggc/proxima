@@ -2,6 +2,7 @@ ja:
   errors:
     messages:
       not_saved: 保存できませんでした
+      housework_limit_exceeded: これ以上家事を作ることはできません。
   date:
     formats:
       short: "%-m月%-d日"
@@ -15,6 +16,8 @@ ja:
     sign_out: ログアウト
     forgot_password: パスワードを忘れた
     send_me_reset_password_mail: パスワードリセットメールを送る
+  confirm:
+    delete: この操作は取り消すことができません。本当に削除してよろしいですか？
   nav:
     home: ホーム
     new_housework: 家事の作成

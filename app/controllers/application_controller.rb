@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :rescue_not_authorized_error
   rescue_from ActiveRecord::RecordInvalid, with: :rescue_record_invalid
+  rescue_from InvalidRequestError, with: :rescue_record_invalid
 
   helper_method :current_workspace
 

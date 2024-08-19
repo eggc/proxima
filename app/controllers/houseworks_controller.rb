@@ -17,9 +17,12 @@ class HouseworksController < ApplicationController
   end
 
   def create
+    raise HouseworkLimitExceeded if Housework.where(user: current_user).count > 100
+
     @housework = Housework.new(user: current_user)
     authorize(@housework)
     @housework.update!(housework_params)
+
     redirect_to(houseworks_path)
   end
 

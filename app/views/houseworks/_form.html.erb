@@ -25,7 +25,7 @@
               <%= ff.text_field(:memo, class: "input input-bordered") %>
             </div>
             <div>
-              <%= turbo_destroy_link_to(path: housework_log_path(housework_log), confirm: false, class: "btn") %>
+              <%= turbo_destroy_link_to(path: housework_log_path(housework_log), confirm: housework_log.memo.present?, class: "btn") %>
             </div>
           </div>
         <% end %>
