@@ -2,6 +2,8 @@ class HouseworkLogsController < ApplicationController
   def create
     @housework_log = HouseworkLog.new(housework_log_params)
 
+    raise HouseworkLogLimitExceeded if @housework_log.housework.housework_logs.count > 100
+
     ApplicationRecord.transaction do
       @housework_log.save!
       @housework_log.housework.save_last_worked_at!

@@ -2,7 +2,8 @@ ja:
   errors:
     messages:
       not_saved: 保存できませんでした
-      housework_limit_exceeded: これ以上家事を作ることはできません。
+      housework_limit_exceeded: これ以上家事を作ることはできません。不要な家事を削除してください。
+      housework_log_limit_exceeded: これ以上家事の記録を作ることはできません。古い記録を削除するか、新しい家事を作り直してください。
   date:
     formats:
       short: "%-m月%-d日"
