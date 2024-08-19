@@ -64,6 +64,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_16_155442) do
     t.date "worked_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["housework_id", "worked_at"], name: "index_housework_logs_on_housework_id_and_worked_at", order: { worked_at: :desc }
     t.index ["housework_id"], name: "index_housework_logs_on_housework_id"
   end
 
