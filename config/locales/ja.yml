@@ -7,7 +7,11 @@ ja:
     destroy: 削除
     cancel: キャンセル
     done: 完了
+    sign_in: ログイン
+    sign_up: 新規登録
     sign_out: ログアウト
+    forgot_password: パスワードを忘れた
+    send_me_reset_password_mail: パスワードリセットメールを送る
   nav:
     home: ホーム
     new_housework: 家事の作成
@@ -20,8 +24,19 @@ ja:
     content: 内容
     display_order: 番号
     email: メールアドレス
+    password: パスワード
+    password_confirmation: パスワード再入力
+    remember_me: ログインしたままにする
     settings: 設定
     housework_tool_enabled: 家事機能
     creative_tool_enabled: 創作機能
     worked_at: 最後にやった日
     memo: メモ
+  devise:
+    pages:
+      login: ログイン
+      sign_up: 新規登録
+      forgot_password: パスワードの再発行
+    failure:
+      user:
+        unauthenticated: ログインしてください
