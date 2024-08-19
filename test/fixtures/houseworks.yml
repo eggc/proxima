@@ -3,16 +3,19 @@ mom001:
   user_id: 4
   content: ゴミ捨て
   display_order: 1
+  last_worked_at: 2024-08-17
 mom002:
   id: 2
   user_id: 4
   content: トイレ掃除
   display_order: 1
+  last_worked_at: 2024-08-01
 mom003:
   id: 3
   user_id: 4
   content: 玄関掃除
   display_order: 1
+  last_worked_at: 2024-06-14
 mom004:
   id: 4
   user_id: 4

@@ -70,6 +70,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_16_155442) do
   create_table "houseworks", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "content", default: "", null: false
+    t.date "last_worked_at"
     t.integer "display_order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -3,8 +3,8 @@ class Housework < ApplicationRecord
   has_many :housework_logs, dependent: :destroy
 
   def days_since_last_done
-    if housework_logs.present?
-      (Date.current - housework_logs.maximum(:worked_at)).to_i
+    if last_worked_at
+      (Date.current - last_worked_at).to_i
     else
       0
     end
