@@ -1,4 +1,7 @@
 ja:
+  errors:
+    messages:
+      not_saved: 保存できませんでした
   date:
     formats:
       short: "%-m月%-d日"

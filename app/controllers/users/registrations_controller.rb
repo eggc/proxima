@@ -2,8 +2,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def after_sign_up_path_for(user)
     UserSetting.create!(
       user:,
-      creative_tool_enabled: true,
-      housework_tool_enabled: false
+      creative_tool_enabled: false,
+      housework_tool_enabled: true
     )
 
     workspace = Workspace.create!(user:, name: 'default workspace', display_order: 1)
