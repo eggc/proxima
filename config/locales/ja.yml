@@ -2,3 +2,26 @@ ja:
   date:
     formats:
       short: "%-m月%-d日"
+  button:
+    edit: 編集
+    destroy: 削除
+    cancel: キャンセル
+    done: 完了
+    sign_out: ログアウト
+  nav:
+    home: ホーム
+    new_housework: 家事の作成
+    user: ユーザー設定
+  housework_pages:
+    new: 家事の作成
+    edit: 家事の編集
+    days_since_last_done: 最後にやった日から：%{count}日
+  attributes:
+    content: 内容
+    display_order: 番号
+    email: メールアドレス
+    settings: 設定
+    housework_tool_enabled: 家事機能
+    creative_tool_enabled: 創作機能
+    worked_at: 最後にやった日
+    memo: メモ

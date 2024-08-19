@@ -11,8 +11,8 @@
             </a>
           </h2>
           <div>
-            <small class="text-neutral-400">
-              最後にやった日：<%= I18n.l(housework.housework_logs.maximum(:worked_at), format: :short) rescue ''%>
+            <small class="text-neutral-600">
+              <%= t('housework_pages.days_since_last_done', count: housework.days_since_last_done) %>
             </small>
           </div>
         </div>
@@ -27,10 +27,10 @@
             <%= f.hidden_field(:housework_id) %>
             <div class="join">
               <%= f.date_field(:worked_at, class: "input-xs join-item") %>
-              <%= f.submit("完了", class: "btn btn-outline btn-xs join-item") %>
+              <%= f.submit(t('button.done'), class: "btn btn-outline btn-xs join-item") %>
             </div>
-            <%= link_to("編集", edit_housework_path(housework), class: "btn btn-outline btn-xs") %>
-            <%= turbo_destroy_link_to("削除", housework_path(housework), confirm: housework.content.present?, class: "btn btn-outline btn-xs") %>
+            <%= link_to(t('button.edit'), edit_housework_path(housework), class: "btn btn-outline btn-xs") %>
+            <%= turbo_destroy_link_to(path: housework_path(housework), confirm: housework.content.present?, class: "btn btn-outline btn-xs") %>
           <% end %>
         </div>
       </div>

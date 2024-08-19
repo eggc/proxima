@@ -1,14 +1,14 @@
 <%= form_with(model: @housework) do |f| %>
-  <div>
-    <label class="form-control">
-      <div class="label"><span class="label-text">Content</span></div>
-      <%= f.text_area(:content, class: "textarea textarea-bordered") %>
-    </label>
+  <div class="space-y-4">
+    <div class="form-control">
+      <%= f.label(:content, class: "label-text pb-4") %>
+      <%= f.text_area(:content, class: "textarea textarea-bordered h-32") %>
+    </div>
 
-    <label class="form-control">
-      <div class="label"><span class="label-text">Number</span></div>
+    <div class="form-control">
+      <%= f.label(:display_order, class: "label-text pb-4") %>
       <%= f.number_field(:display_order, class: "input input-bordered") %>
-    </label>
+    </div>
 
     <div>
       <% @housework.housework_logs.order(worked_at: :desc).each do |housework_log| %>
@@ -24,7 +24,7 @@
               <%= ff.text_field(:memo, class: "input input-bordered", disabled: true) %>
             </div>
             <div>
-              <%= turbo_destroy_link_to("削除", housework_log_path(housework_log), confirm: false, class: "btn") %>
+              <%= turbo_destroy_link_to(path: housework_log_path(housework_log), confirm: false, class: "btn") %>
             </div>
           </div>
         <% end %>
@@ -33,6 +33,7 @@
 
     <div class="pt-4">
       <%= f.submit(class: "btn btn-wide btn-primary") %>
+      <%= link_to(t('button.cancel'), :back, class: "btn btn-wide") %>
     </div>
   </div>
 <% end %>

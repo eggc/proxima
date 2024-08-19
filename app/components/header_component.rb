@@ -11,7 +11,7 @@ class HeaderComponent < ViewComponent::Base
       [
         *creative_tool_menu_items,
         *housework_tool_menu_items,
-        MenuItem.new('User', user_path)
+        MenuItem.new(I18n.t('nav.user'), user_path)
       ]
     else
       []
@@ -40,8 +40,8 @@ class HeaderComponent < ViewComponent::Base
   def housework_tool_menu_items
     if current_user.user_setting.housework_tool_enabled
       [
-        MenuItem.new('Houseworks', houseworks_path),
-        MenuItem.new('New Housework', new_housework_path)
+        MenuItem.new(I18n.t('nav.home'), houseworks_path),
+        MenuItem.new(I18n.t('nav.new_housework'), new_housework_path)
       ]
     else
       []

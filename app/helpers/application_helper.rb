@@ -1,7 +1,7 @@
 module ApplicationHelper
-  def turbo_destroy_link_to(label, path, confirm:, class: 'btn btn-sm')
+  def turbo_destroy_link_to(path:, confirm:, class: 'btn btn-sm')
     link_to(
-      label,
+      I18n.t('button.destroy'),
       path,
       class:,
       data: {

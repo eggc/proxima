@@ -45,7 +45,7 @@
               <%= link_to("Done", dot_tasks_path(dot_id: dot.id), class: "btn btn-xs", data: { turbo_method: :post }) %>
             <% end %>
             <%= link_to("Edit", edit_dot_path(dot), class: "btn btn-xs") %>
-            <%= turbo_destroy_link_to("Delete", dot_path(dot), confirm: dot.content.present?, class: "btn btn-xs") %>
+            <%= turbo_destroy_link_to(path: dot_path(dot), confirm: dot.content.present?, class: "btn btn-xs") %>
           </div>
         </div>
       </div>
