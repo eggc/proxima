@@ -1,14 +1,11 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  def after_sign_up_path_for(user)
-    UserSetting.create!(
-      user:,
-      creative_tool_enabled: false,
-      housework_tool_enabled: true
-    )
-
-    workspace = Workspace.create!(user:, name: 'default workspace', display_order: 1)
-    cookies[:current_workspace_id] = workspace.id
-
-    root_path
+  def create
+    super do |user|
+      UserSetting.create!(
+        user:,
+        creative_tool_enabled: false,
+        housework_tool_enabled: true
+      )
+    end
   end
 end
