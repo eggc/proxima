@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    confirmations: 'users/confirmations'
   }
 
   get 'up' => 'rails/health#show', as: :rails_health_check
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   resources :current_workspaces, only: :update
   resource :tree, only: :show
   resource :user, only: :show
+  resource :need_mail_confirmation, only: :show
 
   resources :dots, only: %i[index create edit update destroy]
   resources :dot_tasks, only: [:create]

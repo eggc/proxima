@@ -47,6 +47,11 @@ ja:
       sign_up: 新規登録
       forgot_password: パスワードの再発行
       mail_confirmation: メール認証
+      need_mail_confirmation_instructions: |
+        システムからあなた宛に初回ログインのためのメールを送信しました。
+        登録したメールアドレスに届いたメールの内容を確認してください。
+        メールが届いていない場合は、下記のページから再送信してください。
+
     failure:
       user:
         unauthenticated: ログインしてください

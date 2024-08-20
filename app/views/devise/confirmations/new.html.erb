@@ -9,7 +9,7 @@
       <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "input input-bordered" %>
     </div>
 
-    <div class="flex space-x-4">
+    <div class="flex space-x-4 mt-4">
       <%= f.submit(t("button.send_me_confirmation_mail"), class: "btn btn-primary btn-outline") %>
       <%= render "devise/shared/links" %>
     </div>
