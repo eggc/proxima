@@ -2,15 +2,27 @@ alice:
   id: 1
   email: alice@example.com
   encrypted_password: $2a$12$ckbp06wvGinqpmr4yNYTremZcXQG6ZG/nj1QKN8D8askrs27XHfIC
+  confirmation_token: DvuxNGBxdohvrobizvpm
+  confirmed_at: 2024-10-10 15:33:14
+  confirmation_sent_at: 2024-10-10 15:30:10
 bob:
   id: 2
   email: bob@example.com
   encrypted_password: $2a$12$ckbp06wvGinqpmr4yNYTremZcXQG6ZG/nj1QKN8D8askrs27XHfIC
+  confirmation_token: 2
+  confirmed_at: 2024-10-10 15:33:14
+  confirmation_sent_at: 2024-10-10 15:30:10
 charlie:
   id: 3
   email: charlie@example.com
   encrypted_password: $2a$12$ckbp06wvGinqpmr4yNYTremZcXQG6ZG/nj1QKN8D8askrs27XHfIC
+  confirmation_token: 3
+  confirmed_at: 2024-10-10 15:33:14
+  confirmation_sent_at: 2024-10-10 15:30:10
 mom:
   id: 4
   email: mom@example.com
   encrypted_password: $2a$12$ckbp06wvGinqpmr4yNYTremZcXQG6ZG/nj1QKN8D8askrs27XHfIC
+  confirmation_token: 4
+  confirmed_at: 2024-10-10 15:33:14
+  confirmation_sent_at: 2024-10-10 15:30:10

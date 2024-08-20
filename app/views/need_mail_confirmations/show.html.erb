@@ -1,0 +1,8 @@
+<div class="p-4">
+  <p>
+    <%= simple_format(t('devise.pages.need_mail_confirmation_instructions')) %>
+  </p>
+  <div class="link link-primary pt-4">
+    <%= link_to(t('devise.pages.mail_confirmation'), new_user_confirmation_path) %>
+  </div>
+</div>

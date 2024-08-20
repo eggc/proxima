@@ -17,6 +17,8 @@ ja:
     sign_out: ログアウト
     forgot_password: パスワードを忘れた
     send_me_reset_password_mail: パスワードリセットメールを送る
+    didnt_receive_confirmation: メール認証する
+    send_me_confirmation_mail: メールアドレス確認メールを送る
   confirm:
     delete: この操作は取り消すことができません。本当に削除してよろしいですか？
   nav:
@@ -44,6 +46,17 @@ ja:
       login: ログイン
       sign_up: 新規登録
       forgot_password: パスワードの再発行
+      mail_confirmation: メール認証
+      need_mail_confirmation_instructions: |
+        システムからあなた宛に初回ログインのためのメールを送信しました。
+        登録したメールアドレスに届いたメールの内容を確認してください。
+        メールが届いていない場合は、下記のページから再送信してください。
+
     failure:
       user:
         unauthenticated: ログインしてください
+        unconfirmed: メールアドレスが未確認です。メール認証をしてください。
+    mail:
+      confirmation_instructions: |
+        ご登録ありがとうございます。
+        利用を始めるには、下記のリンクを開いて、メールアドレスが有効なことをシステムに通知してください。
