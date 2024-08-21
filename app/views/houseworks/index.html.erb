@@ -1,4 +1,10 @@
 <div class="grid grid-cols-1 lg:grid-cols-3">
+  <% if @houseworks.empty? %>
+    <div class="p-4">
+      <p><%= t('housework_pages.no_housework') %></p>
+    </div>
+  <% end %>
+
   <% @houseworks.each do |housework| %>
     <div class="card bg-base-100" id="<%= housework.id %>">
       <div class="card-body p-4">

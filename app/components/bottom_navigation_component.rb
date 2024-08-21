@@ -5,7 +5,7 @@ class BottomNavigationComponent < ViewComponent::Base
     controller.current_user.present?
   end
 
-  def home?
+  def houseworks?
     controller.controller_name == 'houseworks' &&
       controller.action_name == 'index'
   end

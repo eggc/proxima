@@ -23,12 +23,14 @@ ja:
     delete: この操作は取り消すことができません。本当に削除してよろしいですか？
   nav:
     home: ホーム
+    houseworks: 家事の一覧
     new_housework: 家事の作成
     user: ユーザー設定
   housework_pages:
     new: 家事の作成
     edit: 家事の編集
     days_since_last_done: 最後にやった日から：%{count}日
+    no_housework: 家事がありません。家事を作成してください。
   attributes:
     content: 内容
     display_order: 番号
