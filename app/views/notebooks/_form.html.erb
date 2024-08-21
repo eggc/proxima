@@ -2,7 +2,7 @@
   <div>
     <label class="form-control">
       <div class="label"><span class="label-text">Name</span></div>
-      <%= f.text_field(:name) %>
+      <%= f.text_field(:name, class: "input input-bordered") %>
     </label>
 
     <label class="form-control">
@@ -11,7 +11,8 @@
     </label>
 
     <div class="pt-4">
-      <%= f.submit(class: "btn btn-wide btn-primary") %>
+      <%= f.submit(class: "btn btn-primary btn-outline") %>
+      <%= link_to(t('button.cancel'), notebooks_path, class: "btn btn-outline") %>
     </div>
   </div>
 <% end %>

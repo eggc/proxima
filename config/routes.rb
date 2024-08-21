@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   root 'roots#show'
 
-  resources :notebooks, only: %i[new edit create update destroy]
+  resources :notebooks, only: %i[index new edit create update destroy]
   resources :current_notebooks, only: :update
   resource :tree, only: :show
   resource :user, only: :show

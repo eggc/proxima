@@ -22,10 +22,15 @@ ja:
   confirm:
     delete: この操作は取り消すことができません。本当に削除してよろしいですか？
   nav:
+    notebooks: ノート
     home: ホーム
     houseworks: 家事の一覧
     new_housework: 家事の作成
     user: ユーザー設定
+  notebook_pages:
+    index: ノートの一覧
+    new: ノートの作成
+    edit: ノートの編集
   housework_pages:
     new: 家事の作成
     edit: 家事の編集
