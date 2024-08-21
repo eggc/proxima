@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+ridgepole -c config/database.yml -f db/Schemafile $@
