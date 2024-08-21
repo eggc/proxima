@@ -34,14 +34,14 @@ end
 
 create_table "dots", force: :cascade do |t|
   t.bigint "user_id", null: false
-  t.bigint "workspace_id", null: false
+  t.bigint "notebook_id", null: false
   t.string "content", default: "", null: false
   t.string "category", default: "blank", null: false
   t.integer "display_order"
   t.datetime "created_at", null: false
   t.datetime "updated_at", null: false
   t.index ["user_id"], name: "index_dots_on_user_id"
-  t.index ["workspace_id"], name: "index_dots_on_workspace_id"
+  t.index ["notebook_id"], name: "index_dots_on_notebook_id"
 end
 
 create_table "housework_logs", force: :cascade do |t|
@@ -127,14 +127,14 @@ create_table "users", force: :cascade do |t|
   t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 end
 
-create_table "workspaces", force: :cascade do |t|
+create_table "notebooks", force: :cascade do |t|
   t.bigint "user_id", null: false
-  t.string "name", default: "my workspace", null: false
+  t.string "name", default: "my notebook", null: false
   t.integer "display_order"
   t.datetime "created_at", null: false
   t.datetime "updated_at", null: false
-  t.index ["display_order"], name: "index_workspaces_on_display_order"
-  t.index ["user_id"], name: "index_workspaces_on_user_id"
+  t.index ["display_order"], name: "index_notebooks_on_display_order"
+  t.index ["user_id"], name: "index_notebooks_on_user_id"
 end
 
 add_foreign_key "characters", "users"
@@ -142,7 +142,7 @@ add_foreign_key "dot_projects", "dots"
 add_foreign_key "dot_projects", "projects"
 add_foreign_key "dot_tasks", "dots"
 add_foreign_key "dots", "users"
-add_foreign_key "dots", "workspaces"
+add_foreign_key "dots", "notebooks"
 add_foreign_key "housework_logs", "houseworks"
 add_foreign_key "houseworks", "users"
 add_foreign_key "project_characters", "characters"
@@ -151,4 +151,4 @@ add_foreign_key "project_parts", "projects"
 add_foreign_key "project_parts", "users"
 add_foreign_key "projects", "users"
 add_foreign_key "user_settings", "users"
-add_foreign_key "workspaces", "users"
+add_foreign_key "notebooks", "users"

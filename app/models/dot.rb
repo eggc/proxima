@@ -1,6 +1,6 @@
 class Dot < ApplicationRecord
   belongs_to :user
-  belongs_to :workspace
+  belongs_to :notebook
 
   has_many :dot_tasks, dependent: :destroy
 

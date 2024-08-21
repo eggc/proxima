@@ -2,7 +2,7 @@ class DotsController < ApplicationController
   after_action :verify_pundit_authorization
 
   def index
-    @dots = policy_scope(Dot).where(workspace: current_workspace).order(display_order: :desc)
+    @dots = policy_scope(Dot).where(notebook: current_notebook).order(display_order: :desc)
     @dots.where!(category: params[:category]) if params[:category].present?
     @dot_tasks = find_dot_tasks(@dots)
   end
@@ -13,7 +13,7 @@ class DotsController < ApplicationController
   end
 
   def create
-    @dot = build_new_dot(current_user, current_workspace, params[:category])
+    @dot = build_new_dot(current_user, current_notebook, params[:category])
     authorize(@dot)
     @dot.save!
     redirect_back_or_to(dots_path)
@@ -39,9 +39,9 @@ class DotsController < ApplicationController
     params.require(:dot).permit(:content, :category, :display_order)
   end
 
-  def build_new_dot(user, workspace, category)
+  def build_new_dot(user, notebook, category)
     max_order = Dot.where(user:).maximum(:display_order) || 0
-    @dot = Dot.new(user:, display_order: max_order + 1, workspace:)
+    @dot = Dot.new(user:, display_order: max_order + 1, notebook:)
     @dot.category = category if category.present?
     @dot
   end

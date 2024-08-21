@@ -1,6 +1,6 @@
 class HeaderComponent < ViewComponent::Base
   delegate :current_user,
-           :current_workspace,
+           :current_notebook,
            to: :controller,
            private: true
 
@@ -20,7 +20,7 @@ class HeaderComponent < ViewComponent::Base
 
   def header_context
     @header_context = {
-      workspaces: Workspace.where(user: current_user).order(:display_order)
+      notebooks: Notebook.where(user: current_user).order(:display_order)
     }
   end
 

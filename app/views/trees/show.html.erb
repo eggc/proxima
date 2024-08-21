@@ -1,16 +1,16 @@
 <ul class="menu rounded-box">
-  <% @workspaces.each do |workspace| %>
+  <% @notebooks.each do |notebook| %>
     <li>
-      <%= link_to(edit_workspace_path(workspace)) do %>
-        <%= workspace.name %>
-        <% if workspace == current_workspace %>
+      <%= link_to(edit_notebook_path(notebook)) do %>
+        <%= notebook.name %>
+        <% if notebook == current_notebook %>
           <span class="text-primary">
-            (current workspace)
+            (current notebook)
           </span>
         <% end %>
       <% end %>
       <ul>
-        <% workspace.dots.each do |dot| %>
+        <% notebook.dots.each do |dot| %>
           <li>
             <%= link_to(edit_dot_path(dot), class: "min-h-8") do%>
               <div class="badge badge-outline"><%= dot.category %></div>
