@@ -10,11 +10,11 @@
         <% end %>
       <% end %>
       <ul>
-        <% notebook.dots.each do |dot| %>
+        <% notebook.pages.each do |page| %>
           <li>
-            <%= link_to(edit_dot_path(dot), class: "min-h-8") do%>
-              <div class="badge badge-outline"><%= dot.category %></div>
-              <%= dot.content.truncate(40) %>
+            <%= link_to(edit_page_path(page), class: "min-h-8") do%>
+              <div class="badge badge-outline"><%= page.category %></div>
+              <%= page.content.truncate(40) %>
             <% end %>
           </li>
         <% end %>

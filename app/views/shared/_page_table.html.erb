@@ -1,0 +1,17 @@
+<table class="table">
+  <% pages.each do |page| %>
+    <tr>
+      <td><%= page.display_order %></td>
+      <td><%= page.category_icon %></td>
+      <td width="400"><%= page.content %></td>
+      <td>
+        <% hidden_columns.exclude?(:projects) && page.projects.each do |project| %>
+         <div><%= project.title %></div>
+        <% end %>
+      </td>
+      <td><%= page.updated_at.to_date %></td>
+      <td><%= link_to("edit", edit_page_path(page), class: "btn btn-sm") %></td>
+      <td><%= turbo_destroy_link_to(path: page_path(page), confirm: page.content.present?) %></td>
+    </tr>
+  <% end %>
+</table>

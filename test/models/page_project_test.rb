@@ -1,6 +1,6 @@
 require "test_helper"
 
-class DotProjectTest < ActiveSupport::TestCase
+class PageProjectTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

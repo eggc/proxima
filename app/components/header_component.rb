@@ -30,7 +30,7 @@ class HeaderComponent < ViewComponent::Base
     if current_user.user_setting.creative_tool_enabled
       [
         MenuItem.new(I18n.t('nav.notebooks'), notebooks_path),
-        MenuItem.new('Dots', dots_path)
+        MenuItem.new('Pages', pages_path)
       ]
     else
       []

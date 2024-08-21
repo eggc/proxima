@@ -15,14 +15,14 @@ class ProjectsController < ApplicationController
   def new
     max_order = Project.where(user: current_user).maximum(:display_order) || 0
     @project = Project.new(user: current_user, display_order: max_order + 1)
-    @selectable_dots = build_selectable_dots
+    @selectable_pages = build_selectable_pages
     authorize(@project)
   end
 
   def edit
     @project = Project.find(params[:id])
-    @selectable_dots = build_selectable_dots
-    @selected_dot_ids = @project.dots.ids
+    @selectable_pages = build_selectable_pages
+    @selected_page_ids = @project.pages.ids
     authorize(@project)
   end
 
@@ -53,9 +53,9 @@ class ProjectsController < ApplicationController
     params.require(:project).permit(:theme, :title, :media, :description, :display_order)
   end
 
-  def build_selectable_dots
-    Dot.where(user: current_user)
+  def build_selectable_pages
+    Page.where(user: current_user)
       .order(:display_order)
-      .map { |dot| [dot.category_icon + dot.content.truncate(30), dot.id] }
+      .map { |page| [page.category_icon + page.content.truncate(30), page.id] }
   end
 end

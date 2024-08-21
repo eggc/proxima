@@ -1,15 +1,15 @@
 charlie_project_001:
-  dot_id: 2
+  page_id: 2
   project_id: 7
 charlie_project_002:
-  dot_id: 3
+  page_id: 3
   project_id: 7
 charlie_project_003:
-  dot_id: 5
+  page_id: 5
   project_id: 7
 charlie_project_004:
-  dot_id: 1
+  page_id: 1
   project_id: 8
 charlie_project_005:
-  dot_id: 5
+  page_id: 5
   project_id: 8

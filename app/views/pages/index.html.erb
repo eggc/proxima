@@ -1,0 +1,54 @@
+<div class="flex space-x-4 px-8">
+  <%= link_to("New", pages_path(category: params[:category]), data: { turbo_method: :post }, class: "btn btn-primary") %>
+
+  <%= form_with(method: :get) do |f| %>
+    <div class="join">
+      <%= f.select(:category, Page.categories, { selected: params[:category], include_blank: true }, { class: "select select-bordered join-item" }) %>
+      <%= f.submit("🔍", class: "btn join-item") %>
+    </div>
+  <% end %>
+</div>
+
+<div class="grid grid-cols-1 lg:grid-cols-3">
+  <% @pages.each do |page| %>
+    <div class="card bg-base-100 w-96" id="<%= page.id %>">
+      <div class="card-body">
+        <div class="flex items-center justify-between border-b-2 border-primary">
+          <h2 class="card-title">
+            <a href="#<%= page.id %>">
+              <div class="badge badge-outline">
+                <%= page.category %>
+              </div>
+              <small>
+                <%= page.content.truncate(14) %>
+              </small>
+            </a>
+          </h2>
+          <div>
+            <% if @page_tasks[page.id] %>
+              <small>
+                <%= I18n.l(@page_tasks[page.id].created_at, format: :very_short) %>
+              </small>
+            <% end %>
+          </div>
+
+        </div>
+        <div>
+          <div>
+            <%= page.content if page.content.length > 15 %>
+          </div>
+        </div>
+        <div class="flex justify-between items-end h-full">
+          <!-- <small class="text-slate-400"><%= page.updated_at %></small> -->
+          <div class="card-actions">
+            <% if page.category_task? %>
+              <%= link_to("Done", page_tasks_path(page_id: page.id), class: "btn btn-xs", data: { turbo_method: :post }) %>
+            <% end %>
+            <%= link_to("Edit", edit_page_path(page), class: "btn btn-xs") %>
+            <%= turbo_destroy_link_to(path: page_path(page), confirm: page.content.present?, class: "btn btn-xs") %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

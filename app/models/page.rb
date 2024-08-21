@@ -1,15 +1,15 @@
-class Dot < ApplicationRecord
+class Page < ApplicationRecord
   belongs_to :user
   belongs_to :notebook
 
-  has_many :dot_tasks, dependent: :destroy
+  has_many :page_tasks, dependent: :destroy
 
-  has_many :dot_projects, dependent: :destroy
-  has_many :projects, through: :dot_projects
+  has_many :page_projects, dependent: :destroy
+  has_many :projects, through: :page_projects
 
   enum :category, %w[blank hate love think star task].to_h { [_1, _1] }, prefix: true, default: :blank
 
-  scope :filter_by_project, ->(project) { joins(:dot_projects).merge(DotProject.where(project_id: project.id)) }
+  scope :filter_by_project, ->(project) { joins(:page_projects).merge(PageProject.where(project_id: project.id)) }
 
   def category_icon
     {
