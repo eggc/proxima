@@ -75,13 +75,8 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :user_name => 'api',
-    :password => ENV.fetch("PROXIMA_SMTP_PASSWORD"),
-    :address => 'live.smtp.mailtrap.io',
-    :host => 'live.smtp.mailtrap.io',
-    :port => '587',
     :authentication => :login
-  }
+  }.merge(Rails.application.credentials.smtp)
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
