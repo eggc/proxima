@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   resource :tree, only: :show
   resource :user, only: :show
+  resource :user_setting, only: :update
   resource :need_mail_confirmation, only: :show
 
   resources :houseworks, only: %i[index new create edit update destroy]
