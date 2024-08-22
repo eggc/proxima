@@ -1,4 +1,5 @@
-<h1 class="text-xl p-4"><%= t('notebook_pages.new') %></h1>
-<div class="p-4">
+<div class="px-4">
+  <%= render(BreadcrumbsComponent.new(current_notebook: @notebook,  bread_keys: [:notebooks_bread, :new_notebook_bread])) %>
+
   <%= render('form') %>
 </div>

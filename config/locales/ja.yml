@@ -35,6 +35,7 @@ ja:
     index: ノートの一覧
     new: ノートの作成
     edit: ノートの編集
+    there_is_no_notebook: ノートがありません。
   page_pages:
     index: ページの一覧
     edit: ページの編集
