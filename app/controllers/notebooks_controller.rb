@@ -5,6 +5,11 @@ class NotebooksController < ApplicationController
     @notebooks = policy_scope(Notebook).order(:display_order)
   end
 
+  def show
+    @notebook = Notebook.find(params[:id])
+    authorize(@notebook)
+  end
+
   def new
     max_order = Notebook.where(user: current_user).maximum(:display_order) || 0
     @notebook = Notebook.new(user: current_user, display_order: max_order + 1)

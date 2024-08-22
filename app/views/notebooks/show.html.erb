@@ -1,0 +1,18 @@
+<div class="px-4">
+  <%= render(BreadcrumbsComponent.new(current_notebook: @notebook, bread_keys: [:notebooks_bread, :notebook_bread])) %>
+  <% if @notebook.pages.empty? %>
+    <%= t('notebook_pages.there_is_no_page') %>
+  <% end %>
+
+  <div class="pt-4">
+    <% @notebook.pages.each do |page| %>
+      <div class="py-2" id="<%= page.id %>">
+        <%= page.content %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pt-4">
+    <%= link_to(t('notebook_pages.edit'), edit_notebook_path, class: "btn btn-outline") %>
+  </div>
+</div>

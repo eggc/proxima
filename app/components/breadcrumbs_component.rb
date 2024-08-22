@@ -27,6 +27,14 @@ class BreadcrumbsComponent < ViewComponent::Base
     )
   end
 
+  def notebook_bread
+    Bread.new(
+      path: notebook_path(@current_notebook),
+      title: @current_notebook.name,
+      icon: nil
+    )
+  end
+
   def new_notebook_bread
     Bread.new(
       path: new_notebook_path,
