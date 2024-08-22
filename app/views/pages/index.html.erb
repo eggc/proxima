@@ -1,6 +1,6 @@
 <div class="flex space-x-4 px-8">
   <%= link_to(t("button.edit_note"), edit_notebook_path(id: @notebook.id), class: "btn btn-primary btn-outline") %>
-  <%= link_to(t("button.new_page"), pages_path(category: params[:category]), data: { turbo_method: :post }, class: "btn btn-primary btn-outline") %>
+  <%= link_to(t("button.new_page"), notebook_pages_path(category: params[:category]), data: { turbo_method: :post }, class: "btn btn-primary btn-outline") %>
 
   <%= form_with(method: :get) do |f| %>
     <div class="join">

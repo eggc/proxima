@@ -22,21 +22,21 @@ class PagesController < ApplicationController
     @page = build_new_page(params[:notebook_id], params[:category])
     authorize(@page)
     @page.save!
-    redirect_back_or_to(pages_path)
+    redirect_back_or_to(notebook_pages_path(@page.notebook))
   end
 
   def update
     @page = Page.find(params[:id])
     authorize(@page)
     @page.update!(page_params)
-    redirect_to(pages_path)
+    redirect_to(notebook_pages_path(@page.notebook))
   end
 
   def destroy
     @page = Page.find(params[:id])
     authorize(@page)
     @page.destroy!
-    redirect_back_or_to(pages_path)
+    redirect_back_or_to(notebook_pages_path(@page.notebook))
   end
 
   private
