@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   after_action :verify_pundit_authorization
 
   def index
-    @pages = policy_scope(Page).order(display_order: :desc)
+    @pages = policy_scope(Page).order(:display_order)
 
     if params[:notebook_id]
       @notebook = Notebook.find(params[:notebook_id]).then { authorize(_1) }

@@ -21,11 +21,8 @@
         <div class="flex items-center justify-between border-b-2 border-primary">
           <h2 class="card-title">
             <a href="#<%= page.id %>">
-              <div class="badge badge-outline">
-                <%= page.category %>
-              </div>
               <small>
-                <%= page.content.truncate(14) %>
+                <%= page.display_order %>
               </small>
             </a>
           </h2>
