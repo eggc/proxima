@@ -35,6 +35,14 @@ class BreadcrumbsComponent < ViewComponent::Base
     )
   end
 
+  def edit_notebook_bread
+    Bread.new(
+      path: edit_notebook_path(@current_notebook),
+      title: t('notebook_pages.edit'),
+      icon: nil
+    )
+  end
+
   def pages_bread
     Bread.new(
       path: notebook_pages_path(@current_notebook),
@@ -43,10 +51,10 @@ class BreadcrumbsComponent < ViewComponent::Base
     )
   end
 
-  def edit_notebook_bread
+  def new_page_bread
     Bread.new(
-      path: edit_notebook_path(@current_notebook),
-      title: t('notebook_pages.edit'),
+      path: new_notebook_page_path(@current_notebook),
+      title: t('page_pages.new'),
       icon: nil
     )
   end

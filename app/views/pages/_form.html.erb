@@ -1,5 +1,7 @@
 <%= form_with(model: @page) do |f| %>
   <div>
+    <%= f.hidden_field(:notebook_id) %>
+
     <label class="form-control">
       <div class="label"><span class="label-text">Content</span></div>
       <%= f.text_area(:content, class: "textarea textarea-bordered") %>
@@ -17,6 +19,7 @@
 
     <div class="pt-4">
       <%= f.submit(class: "btn btn-primary btn-outline") %>
+      <%= turbo_destroy_link_to(path: page_path(@page), confirm: @page.content.present?, class: "btn btn-outline") if @page.persisted? %>
       <%= link_to(t('button.cancel'), notebook_pages_path(@page.notebook), class: "btn btn-outline") %>
     </div>
   </div>

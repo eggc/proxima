@@ -8,6 +8,8 @@ class Page < ApplicationRecord
 
   scope :filter_by_project, ->(project) { joins(:page_projects).merge(PageProject.where(project_id: project.id)) }
 
+  validates :content, presence: true
+
   def user_id
     notebook&.user_id
   end
