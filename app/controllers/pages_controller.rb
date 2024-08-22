@@ -2,7 +2,13 @@ class PagesController < ApplicationController
   after_action :verify_pundit_authorization
 
   def index
-    @pages = policy_scope(Page).where(notebook: current_notebook).order(display_order: :desc)
+    @pages = policy_scope(Page).order(display_order: :desc)
+
+    if params[:notebook_id]
+      @notebook = Notebook.find(params[:notebook_id]).then { authorize(_1) }
+      @pages.where!(notebook: @notebook)
+    end
+
     @pages.where!(category: params[:category]) if params[:category].present?
     @page_tasks = find_page_tasks(@pages)
   end
@@ -13,7 +19,7 @@ class PagesController < ApplicationController
   end
 
   def create
-    @page = build_new_page(current_user, current_notebook, params[:category])
+    @page = build_new_page(params[:notebook_id], params[:category])
     authorize(@page)
     @page.save!
     redirect_back_or_to(pages_path)
@@ -30,7 +36,7 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
     authorize(@page)
     @page.destroy!
-    redirect_to(pages_path)
+    redirect_back_or_to(pages_path)
   end
 
   private
@@ -39,9 +45,9 @@ class PagesController < ApplicationController
     params.require(:page).permit(:content, :category, :display_order)
   end
 
-  def build_new_page(user, notebook, category)
-    max_order = Page.where(user:).maximum(:display_order) || 0
-    @page = Page.new(user:, display_order: max_order + 1, notebook:)
+  def build_new_page(notebook_id, category)
+    max_order = Page.where(notebook_id:).maximum(:display_order) || 0
+    @page = Page.new(display_order: max_order + 1, notebook_id:)
     @page.category = category if category.present?
     @page
   end

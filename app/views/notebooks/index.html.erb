@@ -4,7 +4,7 @@
   <ul class="menu rounded-box">
     <% @notebooks.each do |notebook| %>
       <li>
-        <%= link_to(edit_notebook_path(notebook)) do %>
+        <%= link_to(notebook_pages_path(notebook)) do %>
           <%= notebook.name %>
         <% end %>
       </li>

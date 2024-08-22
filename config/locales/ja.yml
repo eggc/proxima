@@ -8,6 +8,7 @@ ja:
     formats:
       short: "%-m月%-d日"
   button:
+    new: 作成
     edit: 編集
     destroy: 削除
     cancel: キャンセル
@@ -19,10 +20,13 @@ ja:
     send_me_reset_password_mail: パスワードリセットメールを送る
     didnt_receive_confirmation: メール認証する
     send_me_confirmation_mail: メールアドレス確認メールを送る
+    edit_note: ノート編集
+    new_page: ページ追加
   confirm:
     delete: この操作は取り消すことができません。本当に削除してよろしいですか？
   nav:
     notebooks: ノート
+    pages: ページ
     home: ホーム
     houseworks: 家事の一覧
     new_housework: 家事の作成
