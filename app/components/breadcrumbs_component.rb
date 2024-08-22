@@ -30,7 +30,15 @@ class BreadcrumbsComponent < ViewComponent::Base
   def pages_bread
     Bread.new(
       path: notebook_pages_path(@current_notebook),
-      title: t('page_pages.index'),
+      title: [@current_notebook.name, t('page_pages.index')].join(' '),
+      icon: nil
+    )
+  end
+
+  def edit_notebook_bread
+    Bread.new(
+      path: edit_notebook_path(@current_notebook),
+      title: t('notebook_pages.edit'),
       icon: nil
     )
   end

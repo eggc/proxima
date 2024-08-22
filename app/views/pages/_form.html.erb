@@ -17,6 +17,7 @@
 
     <div class="pt-4">
       <%= f.submit(class: "btn btn-wide btn-primary") %>
+      <%= link_to(t('button.cancel'), notebook_pages_path(@page.notebook), class: "btn btn-outline") %>
     </div>
   </div>
 <% end %>

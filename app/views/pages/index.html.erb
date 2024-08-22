@@ -49,7 +49,7 @@
             <% if page.category_task? %>
               <%= link_to("Done", page_tasks_path(page_id: page.id), class: "btn btn-xs", data: { turbo_method: :post }) %>
             <% end %>
-            <%= link_to("Edit", edit_page_path(page), class: "btn btn-xs") %>
+            <%= link_to(t("button.edit"), edit_page_path(page), class: "btn btn-xs") %>
             <%= turbo_destroy_link_to(path: page_path(page), confirm: page.content.present?, class: "btn btn-xs") %>
           </div>
         </div>
