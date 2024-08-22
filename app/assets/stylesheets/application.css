@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+.proxima-notebook {
+    line-height: 2.5em;
+    background-size:100% 2.5em;
+    background-image:linear-gradient(transparent 0, transparent 97%, #999 100%);
+    min-height: 2.5em;
+}

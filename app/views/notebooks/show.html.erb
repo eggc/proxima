@@ -6,9 +6,14 @@
 
   <div class="pt-4">
     <% @notebook.pages.each do |page| %>
-      <div class="py-2" id="<%= page.id %>">
+      <p class="proxima-notebook" id="<%= page.id %>">
         <%= page.content %>
-      </div>
+      </p>
+    <% end %>
+
+    <% (10 - @notebook.pages.size).times do %>
+      <p class="proxima-notebook">
+      </p>
     <% end %>
   </div>
 
