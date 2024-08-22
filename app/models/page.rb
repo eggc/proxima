@@ -1,8 +1,6 @@
 class Page < ApplicationRecord
   belongs_to :notebook
 
-  has_many :page_tasks, dependent: :destroy
-
   has_many :page_projects, dependent: :destroy
   has_many :projects, through: :page_projects
 

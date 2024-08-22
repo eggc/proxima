@@ -23,15 +23,6 @@ create_table "page_projects", force: :cascade do |t|
   t.index ["project_id"], name: "index_page_projects_on_project_id"
 end
 
-create_table "page_tasks", force: :cascade do |t|
-  t.bigint "page_id", null: false
-  t.boolean "is_completed", default: false, null: false
-  t.datetime "completed_at"
-  t.datetime "created_at", null: false
-  t.datetime "updated_at", null: false
-  t.index ["page_id"], name: "index_page_tasks_on_page_id"
-end
-
 create_table "pages", force: :cascade do |t|
   t.bigint "notebook_id", null: false
   t.string "content", default: "", null: false
@@ -138,7 +129,6 @@ end
 # add_foreign_key "characters", "users"
 # add_foreign_key "page_projects", "pages"
 # add_foreign_key "page_projects", "projects"
-# add_foreign_key "page_tasks", "pages"
 # add_foreign_key "pages", "users"
 # add_foreign_key "pages", "notebooks"
 # add_foreign_key "housework_logs", "houseworks"

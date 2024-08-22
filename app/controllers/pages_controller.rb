@@ -10,7 +10,6 @@ class PagesController < ApplicationController
     end
 
     @pages.where!(category: params[:category]) if params[:category].present?
-    @page_tasks = find_page_tasks(@pages)
   end
 
   def edit
@@ -50,17 +49,5 @@ class PagesController < ApplicationController
     @page = Page.new(display_order: max_order + 1, notebook_id:)
     @page.category = category if category.present?
     @page
-  end
-
-  def find_page_tasks(pages)
-    max_ids =
-      PageTask
-        .joins(:page)
-        .merge(pages.reorder(nil))
-        .group(:page_id)
-        .maximum(:id)
-        .values
-
-    @page_tasks = PageTask.where(id: max_ids).index_by(&:page_id)
   end
 end

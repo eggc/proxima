@@ -18,9 +18,6 @@ Rails.application.routes.draw do
   resource :user, only: :show
   resource :need_mail_confirmation, only: :show
 
-
-  resources :page_tasks, only: [:create]
-
   resources :houseworks, only: %i[index new create edit update destroy]
   resources :housework_logs, only: %i[create destroy]
 
