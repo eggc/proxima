@@ -1,41 +1,35 @@
 charlie_page001:
   id: 1
-  user_id: 3
   notebook_id: 1
   content: 夏の激しい暑さの中で冷たいアイスクリームを食べるのが好き
   display_order: 1
   category: 'love'
 charlie_page002:
   id: 2
-  user_id: 3
   notebook_id: 1
   content: 不遇な環境でも、めげないで努力して成功する話が好き
   display_order: 2
   category: 'love'
 charlie_page003:
   id: 3
-  user_id: 3
   notebook_id: 1
   content: たくさんの仲間に囲まれているよりも、一人で孤独に戦っている人の方が応援したくなる
   display_order: 3
   category: 'star'
 charlie_page004:
   id: 4
-  user_id: 3
   notebook_id: 2
   content: 異世界ものでは、転生する前の家族や友人との別れについて詳しく語ることはない気がする。辛い現実のことを全て忘れて、第二の人生を歩みたいという隠れた願望なのか。それとも、単に現実とかはどうでもいいので妄想の中くらい好き勝手やりたい、という素直な欲望の表れなのか。どちらだろうか。
   display_order: 4
   category: 'think'
 charlie_page005:
   id: 5
-  user_id: 3
   notebook_id: 1
   content: ピザを食べた。うまい。頭空っぽになるね。
   display_order: 5
   category: 'love'
 charlie_page006:
   id: 6
-  user_id: 3
   notebook_id: 2
   content: https://x.com/eggc0/status/1820478057645527415 これいいね。
   display_order: 5

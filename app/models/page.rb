@@ -1,5 +1,4 @@
 class Page < ApplicationRecord
-  belongs_to :user
   belongs_to :notebook
 
   has_many :page_tasks, dependent: :destroy
@@ -10,6 +9,10 @@ class Page < ApplicationRecord
   enum :category, %w[blank hate love think star task].to_h { [_1, _1] }, prefix: true, default: :blank
 
   scope :filter_by_project, ->(project) { joins(:page_projects).merge(PageProject.where(project_id: project.id)) }
+
+  def user_id
+    notebook&.user_id
+  end
 
   def category_icon
     {

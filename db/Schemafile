@@ -33,14 +33,12 @@ create_table "page_tasks", force: :cascade do |t|
 end
 
 create_table "pages", force: :cascade do |t|
-  t.bigint "user_id", null: false
   t.bigint "notebook_id", null: false
   t.string "content", default: "", null: false
   t.string "category", default: "blank", null: false
   t.integer "display_order"
   t.datetime "created_at", null: false
   t.datetime "updated_at", null: false
-  t.index ["user_id"], name: "index_pages_on_user_id"
   t.index ["notebook_id"], name: "index_pages_on_notebook_id"
 end
 
