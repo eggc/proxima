@@ -1,10 +1,9 @@
-<div class="px-8">
+<div class="px-4">
   <%= render(BreadcrumbsComponent.new(current_notebook: @notebook, bread_keys: [:notebooks_bread, :pages_bread])) %>
 </div>
 
-<div class="flex space-x-4 px-8">
+<div class="flex space-x-4 px-4">
   <%= link_to(t("button.edit_note"), edit_notebook_path(id: @notebook.id), class: "btn btn-primary btn-outline") %>
-  <%= link_to(t("button.new_page"), notebook_pages_path(category: params[:category]), data: { turbo_method: :post }, class: "btn btn-primary btn-outline") %>
 
   <%= form_with(method: :get) do |f| %>
     <div class="join">
@@ -14,31 +13,14 @@
   <% end %>
 </div>
 
-<div class="grid grid-cols-1 lg:grid-cols-3">
+<div class="pt-4 px-4">
   <% @pages.each do |page| %>
-    <div class="card bg-base-100" id="<%= page.id %>">
-      <div class="card-body">
-        <div class="flex items-center justify-between border-b-2 border-primary">
-          <h2 class="card-title">
-            <a href="#<%= page.id %>">
-              <small>
-                <%= page.display_order %>
-              </small>
-            </a>
-          </h2>
-        </div>
-        <div>
-          <div>
-            <%= page.content if page.content.length > 15 %>
-          </div>
-        </div>
-        <div class="flex justify-between items-end h-full">
-          <div class="card-actions">
-            <%= link_to(t("button.edit"), edit_page_path(page), class: "btn btn-xs") %>
-            <%= turbo_destroy_link_to(path: page_path(page), confirm: page.content.present?, class: "btn btn-xs") %>
-          </div>
-        </div>
-      </div>
+    <div class="py-2" id="<%= page.id %>">
+      <%= link_to(edit_page_path(page), class: 'min-h-6 w-full block') do %>
+        <%#= render('shared/icon', type: :page) %>
+        <%= page.content %>
+      <% end %>
     </div>
   <% end %>
+  <%= link_to(t("button.new_page"), new_notebook_page_path(category: params[:category]), class: "link link-primary") %>
 </div>

@@ -8,10 +8,10 @@ Rails.application.routes.draw do
 
   root 'roots#show'
 
-  resources :notebooks, only: %i[index new edit create update destroy] do
-    resources :pages, only: [:index, :create]
+  resources :notebooks, only: %i[index show new edit create update destroy] do
+    resources :pages, only: [:index, :new]
   end
-  resources :pages, only: %i[edit update destroy]
+  resources :pages, only: %i[edit create update destroy]
 
   resource :tree, only: :show
   resource :user, only: :show

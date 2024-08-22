@@ -1,10 +1,13 @@
-<div class="p-4">
-  <h2><%= t('notebook_pages.index') %></h2>
+<div class="px-4">
+  <%= render(BreadcrumbsComponent.new(bread_keys: [:notebooks_bread])) %>
+  <% if @notebooks.empty? %>
+    <%= t('notebook_pages.there_is_no_notebook') %>
+  <% end %>
 
   <ul class="menu rounded-box">
     <% @notebooks.each do |notebook| %>
       <li>
-        <%= link_to(notebook_pages_path(notebook)) do %>
+        <%= link_to(notebook_path(notebook)) do %>
           <%= notebook.name %>
         <% end %>
       </li>

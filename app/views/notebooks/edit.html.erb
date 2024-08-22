@@ -1,5 +1,5 @@
-<div class="p-4">
-  <%= render(BreadcrumbsComponent.new(current_notebook: @notebook, bread_keys: [:notebooks_bread, :edit_notebook_bread])) %>
+<div class="px-4">
+  <%= render(BreadcrumbsComponent.new(current_notebook: @notebook, bread_keys: [:notebooks_bread, :notebook_bread, :edit_notebook_bread])) %>
 
   <%= render('form') %>
 </div>

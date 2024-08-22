@@ -32,12 +32,14 @@ ja:
     new_housework: 家事の作成
     user: ユーザー設定
   notebook_pages:
-    index: ノートの一覧
+    index: ノート
     new: ノートの作成
     edit: ノートの編集
+    there_is_no_notebook: ノートがありません。
   page_pages:
     index: ページの一覧
     edit: ページの編集
+    new: ページの追加
   housework_pages:
     new: 家事の作成
     edit: 家事の編集
@@ -55,6 +57,7 @@ ja:
     creative_tool_enabled: 創作機能
     worked_at: 最後にやった日
     memo: メモ
+    name: 名前
   devise:
     pages:
       login: ログイン

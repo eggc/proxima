@@ -7,7 +7,7 @@ class BreadcrumbsComponent < ViewComponent::Base
 
   delegate :notebooks_path, :pages_path, to: :helpers
 
-  def initialize(current_notebook:, current_page: nil, bread_keys:)
+  def initialize(current_notebook: nil, current_page: nil, bread_keys:)
     @current_notebook = current_notebook
     @current_page = current_page
     @bread_keys = bread_keys
@@ -23,7 +23,31 @@ class BreadcrumbsComponent < ViewComponent::Base
     Bread.new(
       path: notebooks_path,
       title: t('notebook_pages.index'),
-      icon: :folder
+      icon: nil
+    )
+  end
+
+  def notebook_bread
+    Bread.new(
+      path: notebook_path(@current_notebook),
+      title: @current_notebook.name,
+      icon: nil
+    )
+  end
+
+  def new_notebook_bread
+    Bread.new(
+      path: new_notebook_path,
+      title: t('notebook_pages.new'),
+      icon: nil
+    )
+  end
+
+  def edit_notebook_bread
+    Bread.new(
+      path: edit_notebook_path(@current_notebook),
+      title: t('notebook_pages.edit'),
+      icon: nil
     )
   end
 
@@ -35,10 +59,10 @@ class BreadcrumbsComponent < ViewComponent::Base
     )
   end
 
-  def edit_notebook_bread
+  def new_page_bread
     Bread.new(
-      path: edit_notebook_path(@current_notebook),
-      title: t('notebook_pages.edit'),
+      path: new_notebook_page_path(@current_notebook),
+      title: t('page_pages.new'),
       icon: nil
     )
   end
