@@ -23,7 +23,7 @@ class BreadcrumbsComponent < ViewComponent::Base
     Bread.new(
       path: notebooks_path,
       title: t('notebook_pages.index'),
-      icon: :folder
+      icon: nil
     )
   end
 
