@@ -1,8 +1,5 @@
 class HeaderComponent < ViewComponent::Base
-  delegate :current_user,
-           :current_notebook,
-           to: :controller,
-           private: true
+  delegate :current_user, to: :controller, private: true
 
   MenuItem = Data.define(:name, :path)
 

@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   end
   resources :pages, only: %i[edit update destroy]
 
-  resources :current_notebooks, only: :update
   resource :tree, only: :show
   resource :user, only: :show
   resource :need_mail_confirmation, only: :show
