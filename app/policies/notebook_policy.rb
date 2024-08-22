@@ -1,0 +1,2 @@
+class NotebookPolicy < AbstractUserItemPolicy
+end

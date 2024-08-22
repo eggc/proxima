@@ -1,10 +1,10 @@
 <h2><%= @project.title %></h2>
 
 <div style="display: flex; align-items: center;">
-  <h3>Dots</h3> / <%= link_to("new", dots_path) %>
+  <h3>Pages</h3> / <%= link_to("new", pages_path) %>
 </div>
-<%= render("shared/dot_table", dots: @project.dots, hidden_columns: [:projects]) %>
-<%= link_to("new", dots_path(project_id: @project.id), data: { turbo_method: :post }) %>
+<%= render("shared/page_table", pages: @project.pages, hidden_columns: [:projects]) %>
+<%= link_to("new", pages_path(project_id: @project.id), data: { turbo_method: :post }) %>
 
 <div style="display: flex; align-items: center;">
   <h3>Characters</h3> / <%= link_to("new", new_character_path(project_id: @project.id)) %>

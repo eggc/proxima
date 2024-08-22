@@ -1,15 +1,20 @@
-<header class="navbar hidden lg:block">
-  <%= link_to(root_path) do %>
-    <h1>Proxima</h1>
-  <% end %>
+<nav class="navbar hidden lg:flex">
+  <div class="flex-1">
+    <%= link_to(root_path, class: "btn btn-ghost text-xl") do %>
+      Proxima
+    <% end %>
+  </div>
 
-  <nav>
+  <div>
     <ul class="menu menu-horizontal z-[1]">
-      <% menu_items.each do |menu_item| %>
-        <li>
-          <%= link_to(menu_item.name, menu_item.path) %>
-        </li>
-      <% end %>
+    <% menu_items.each do |menu_item| %>
+      <li>
+        <%= link_to(menu_item.path) do %>
+          <%= render('shared/icon', type: menu_item.icon) %>
+          <%= menu_item.name %>
+        <% end %>
+      </li>
+    <% end %>
     </ul>
-  </nav>
-</header>
+  </div>
+</nav>

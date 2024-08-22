@@ -8,6 +8,7 @@ ja:
     formats:
       short: "%-m月%-d日"
   button:
+    new: 作成
     edit: 編集
     destroy: 削除
     cancel: キャンセル
@@ -19,16 +20,29 @@ ja:
     send_me_reset_password_mail: パスワードリセットメールを送る
     didnt_receive_confirmation: メール認証する
     send_me_confirmation_mail: メールアドレス確認メールを送る
+    edit_note: ノート編集
+    new_page: ページ追加
   confirm:
     delete: この操作は取り消すことができません。本当に削除してよろしいですか？
   nav:
+    notebooks: ノート
+    pages: ページ
     home: ホーム
+    houseworks: 家事の一覧
     new_housework: 家事の作成
     user: ユーザー設定
+  notebook_pages:
+    index: ノートの一覧
+    new: ノートの作成
+    edit: ノートの編集
+  page_pages:
+    index: ページの一覧
+    edit: ページの編集
   housework_pages:
     new: 家事の作成
     edit: 家事の編集
     days_since_last_done: 最後にやった日から：%{count}日
+    no_housework: 家事がありません。家事を作成してください。
   attributes:
     content: 内容
     display_order: 番号

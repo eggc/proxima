@@ -1,0 +1,15 @@
+<div class="p-4">
+  <h2><%= t('notebook_pages.index') %></h2>
+
+  <ul class="menu rounded-box">
+    <% @notebooks.each do |notebook| %>
+      <li>
+        <%= link_to(notebook_pages_path(notebook)) do %>
+          <%= notebook.name %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= link_to(t('notebook_pages.new'), new_notebook_path, class: "btn btn-outline") %>
+</div>

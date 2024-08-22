@@ -1,5 +1,5 @@
-class Workspace < ApplicationRecord
+class Notebook < ApplicationRecord
   belongs_to :user
-  has_many :dots
+  has_many :pages
   validates :name, presence: true
 end

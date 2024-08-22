@@ -1,11 +1,9 @@
-class BottomNavigationComponent < ViewComponent::Base
-  delegate :current_user, to: :controller, private: true
-
+class BottomNavigationComponent < HeaderComponent
   def render?
-    controller.current_user.present?
+    current_user.present?
   end
 
-  def home?
+  def houseworks?
     controller.controller_name == 'houseworks' &&
       controller.action_name == 'index'
   end

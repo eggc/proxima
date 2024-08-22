@@ -7,14 +7,6 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordInvalid, with: :rescue_record_invalid
   rescue_from InvalidRequestError, with: :rescue_record_invalid
 
-  helper_method :current_workspace
-
-  def current_workspace
-    @current_workspace ||=
-      Workspace.where(user: current_user).find_by(id: cookies[:current_workspace_id]) ||
-      Workspace.where(user: current_user).order(:display_order).first
-  end
-
   private
 
   def rescue_not_authorized_error

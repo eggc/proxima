@@ -1,4 +1,4 @@
-<%= form_with(model: @dot) do |f| %>
+<%= form_with(model: @page) do |f| %>
   <div>
     <label class="form-control">
       <div class="label"><span class="label-text">Content</span></div>
@@ -7,7 +7,7 @@
 
     <label class="form-control">
       <div class="label"><span class="label-text">Emote</span></div>
-      <%= f.select(:category, Dot.categories, {}, { class: "select select-bordered" }) %>
+      <%= f.select(:category, Page.categories, {}, { class: "select select-bordered" }) %>
     </label>
 
     <label class="form-control">
@@ -16,7 +16,8 @@
     </label>
 
     <div class="pt-4">
-      <%= f.submit(class: "btn btn-wide btn-primary") %>
+      <%= f.submit(class: "btn btn-primary btn-outline") %>
+      <%= link_to(t('button.cancel'), notebook_pages_path(@page.notebook), class: "btn btn-outline") %>
     </div>
   </div>
 <% end %>

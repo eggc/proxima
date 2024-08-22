@@ -1,0 +1,23 @@
+charlie_notebook001:
+  id: 1
+  user_id: 3
+  name: default notebook
+  display_order: 1
+charlie_notebook002:
+  id: 2
+  user_id: 3
+  name: 2nd notebook
+  display_order: 2
+mom001:
+  id: 3
+  user_id: 4
+  name: demo notebook
+  display_order: 1
+alice_notebook001:
+  id: 4
+  user_id: 1
+  name: my notebook
+bob_notebook001:
+  id: 5
+  user_id: 2
+  name: my notebook
