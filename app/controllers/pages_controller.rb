@@ -29,21 +29,21 @@ class PagesController < ApplicationController
     @page.attributes = page_params
     authorize(@page)
     @page.save!
-    redirect_to(notebook_pages_path(@page.notebook))
+    redirect_to(notebook_path(@page.notebook))
   end
 
   def update
     @page = Page.find(params[:id])
     authorize(@page)
     @page.update!(page_params)
-    redirect_to(notebook_pages_path(@page.notebook))
+    redirect_to(notebook_path(@page.notebook))
   end
 
   def destroy
     @page = Page.find(params[:id])
     authorize(@page)
     @page.destroy!
-    redirect_to(notebook_pages_path(@page.notebook))
+    redirect_to(notebook_path(@page.notebook))
   end
 
   private

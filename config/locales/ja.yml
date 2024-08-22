@@ -36,10 +36,10 @@ ja:
     new: ノートの作成
     edit: ノートの編集
     there_is_no_notebook: ノートがありません。
-    there_is_no_page: ページがありません。
   page_pages:
     index: ページの一覧
     edit: ページの編集
+    new: ページの追加
   housework_pages:
     new: 家事の作成
     edit: 家事の編集

@@ -1,19 +1,20 @@
 <div class="px-4">
   <%= render(BreadcrumbsComponent.new(current_notebook: @notebook, bread_keys: [:notebooks_bread, :notebook_bread])) %>
-  <% if @notebook.pages.empty? %>
-    <%= t('notebook_pages.there_is_no_page') %>
-  <% end %>
-
   <div class="pt-4">
     <% @notebook.pages.each do |page| %>
-      <p class="proxima-notebook" id="<%= page.id %>">
-        <%= page.content %>
-      </p>
-    <% end %>
+      <%= link_to(edit_page_path(page)) do %>
+        <p class="proxima-notebook hover:dark:bg-slate-900 hover:bg-slate-100" id="<%= page.id %>">
+          <%= page.content %>
+        </p>
+      <% end %>
+          <% end %>
 
     <% (10 - @notebook.pages.size).times do %>
-      <p class="proxima-notebook">
-      </p>
+      <%= link_to(new_notebook_page_path(@notebook)) do %>
+        <p class="proxima-notebook hover:dark:bg-slate-900 hover:bg-slate-100 text-center">
+          <span class="text-slate-500">+</span>
+        </p>
+      <% end %>
     <% end %>
   </div>
 

@@ -1,26 +1,21 @@
 <%= form_with(model: @page) do |f| %>
-  <div>
+  <div class="space-y-4">
     <%= f.hidden_field(:notebook_id) %>
 
-    <label class="form-control">
-      <div class="label"><span class="label-text">Content</span></div>
+    <div class="form-control">
+      <%= f.label(:content, class: "label-text") %>
       <%= f.text_area(:content, class: "textarea textarea-bordered") %>
-    </label>
+    </div>
 
-    <label class="form-control">
-      <div class="label"><span class="label-text">Emote</span></div>
-      <%= f.select(:category, Page.categories, {}, { class: "select select-bordered" }) %>
-    </label>
-
-    <label class="form-control">
-      <div class="label"><span class="label-text">Number</span></div>
+    <div class="form-control">
+      <%= f.label(:display_order, class: "label-text") %>
       <%= f.number_field(:display_order, class: "input input-bordered") %>
-    </label>
+    </div>
 
     <div class="pt-4">
       <%= f.submit(class: "btn btn-primary btn-outline") %>
       <%= turbo_destroy_link_to(path: page_path(@page), confirm: @page.content.present?, class: "btn btn-outline") if @page.persisted? %>
-      <%= link_to(t('button.cancel'), notebook_pages_path(@page.notebook), class: "btn btn-outline") %>
+      <%= link_to(t('button.cancel'), notebook_path(@page.notebook), class: "btn btn-outline") %>
     </div>
   </div>
 <% end %>
