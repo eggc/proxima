@@ -7,14 +7,18 @@
           <%= page.content %>
         </p>
       <% end %>
-          <% end %>
+    <% end %>
 
-    <% (10 - @notebook.pages.size).times do %>
-      <%= link_to(new_notebook_page_path(@notebook)) do %>
-        <p class="proxima-notebook hover:dark:bg-slate-900 hover:bg-slate-100 text-center">
-          <span class="text-slate-500">+</span>
-        </p>
-      <% end %>
+    <%= link_to(new_notebook_page_path(@notebook)) do %>
+      <p class="proxima-notebook hover:dark:bg-slate-900 hover:bg-slate-100 flex items-center justify-center text-slate-500">
+        <%= render(IconComponent.new(:plus, class: "size-6")) %>
+        <span class="pl-2"><%= t('button.new') %></span>
+      </p>
+    <% end %>
+
+    <% (9 - @notebook.pages.size).times do %>
+      <p class="proxima-notebook">
+      </p>
     <% end %>
   </div>
 

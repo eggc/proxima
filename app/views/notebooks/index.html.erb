@@ -4,11 +4,13 @@
     <%= t('notebook_pages.there_is_no_notebook') %>
   <% end %>
 
-  <ul class="menu rounded-box">
+  <ul class="menu">
     <% @notebooks.each do |notebook| %>
       <li>
         <%= link_to(notebook_path(notebook)) do %>
+          <%= render(IconComponent.new(:note, class: "size-4")) %>
           <%= notebook.name %>
+          <small class="text-slate-500"><%= t('button.open') %></small>
         <% end %>
       </li>
     <% end %>
