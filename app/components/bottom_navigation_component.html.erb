@@ -2,7 +2,7 @@
   <% menu_items.each do |menu_item| %>
     <%= link_to(menu_item.path, class: menu_item.active? ? "active" : "") do %>
       <%= render('shared/icon', type: menu_item.icon) %>
-      <span class="btm-nav-label">
+      <span class="btm-nav-label text-xs">
         <%= menu_item.name %>
       </span>
     <% end %>
