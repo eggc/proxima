@@ -10,7 +10,7 @@
     <% menu_items.each do |menu_item| %>
       <li>
         <%= link_to(menu_item.path) do %>
-          <%= render('shared/icon', type: menu_item.icon) %>
+          <%= render(IconComponent.new(menu_item.icon)) %>
           <%= menu_item.name %>
         <% end %>
       </li>

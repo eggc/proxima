@@ -3,7 +3,7 @@
     <% breads.each do |bread| %>
       <li>
         <%= link_to(bread.path) do %>
-          <small><%= render('shared/icon', type: bread.icon) %></small>
+          <small><%= render(IconComponent.new(bread.icon)) %></small>
           <%= bread.title %>
         <% end %>
       </li>

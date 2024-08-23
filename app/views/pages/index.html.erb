@@ -17,7 +17,7 @@
   <% @pages.each do |page| %>
     <div class="py-2" id="<%= page.id %>">
       <%= link_to(edit_page_path(page), class: 'min-h-6 w-full block') do %>
-        <%#= render('shared/icon', type: :page) %>
+        <%#= render(IconComponent.new(:page)) %>
         <%= page.content %>
       <% end %>
     </div>
